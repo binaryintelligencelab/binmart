@@ -1,0 +1,15 @@
+{
+	"vetement":{
+		"matriere":["first","second"];
+		"modele":["first","second"],
+		"manche":["first","second"],
+		"fermeture":["first","second"],
+		"cole":["first","second"],
+		"transparence":["first","second"],
+		"lavage":["firts","second"],
+		"poche":["first","second"],
+		"motifs":["firts";"second"],
+		"longeur":["first","second"]
+	}
+	
+}

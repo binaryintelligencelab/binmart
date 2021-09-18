@@ -1,0 +1,174 @@
+{{#section "head"}}
+	<title>article</title>
+	<link rel="stylesheet" href="/public/css/article/contentApproval.css"/>
+	<meta name="viewport" content="width=device-width" initial-scale="1"/>
+			<style>
+				#article_wrapper ul.article_illustration .thumbnail li.active{				
+					border-bottom:5px solid {{color.name}};					
+				}
+			</style>
+		{{#if adminArticle}}
+			<style>
+				#article_wrapper{
+					margin-bottom:600px;
+					border:none;
+				}
+				#article_wrapper ul.article_illustration .thumbnail li.active{				
+					border-bottom:5px solid {{color.name}};					
+				}
+			</style>			
+		{{/if}}
+		{{#if superAdmin}}
+			<style>
+				#article_wrapper{
+					margin-top:5em;					
+				}
+				
+			</style>			
+		{{/if}}
+{{/section}}
+		<header>
+			{{> menu}}		
+		</header>
+		
+		<section id="article_wrapper">
+			
+			{{#if article}}
+			<article>
+				<ul class="article_illustration" id="article_illustration">
+					<h2><span>{{article.name}}<em>(...{{article.mark}})</em></span><span>{{article.wholePrice}}$ <em>En Gros à partir de {{article.wholeNumber}} paires</em></span></h2>
+				
+										<section id="{{filename1}}" class="illustration_detail principale activeted">
+											<li style="background-image:url(/public/image/{{article.classe}}/{{article.categorie}}/{{article.type}}/{{color.filename1}})" id="{{color._id}}">
+												<span>
+													<em>En details</em>
+													<em>{{article.detailPrice}} $</em>
+												</span>					
+											</li>
+											<ul class="thumbnail">
+												<li class="active" style="background-image:url(/public/image/{{article.classe}}/{{article.categorie}}/{{article.type}}/{{color.filename1}})">{{#if adminArticle}} <span title="supprimer">Image 1</span> {{/if}}</li>
+												<li style="background-image:url(/public/image/{{article.classe}}/{{article.categorie}}/{{article.type}}/{{color.filename2}})">{{#if adminArticle}}<span title="supprimer">Image 2</span>{{/if}}</li>
+												
+											</ul>
+													
+					
+					
+				</ul>
+				<div class="article_description">
+					
+					<ul class="size">
+						<h2>Taille Disponible</h2>
+						{{#each article.size}}
+								<li title="numero disponible" class="user_size">{{.}}</li>
+						{{/each}}	
+						
+					</ul>
+					<ul class="color">
+						<h2>Couleur dispoble</h2>
+						{{#each allColors}}
+							{{#if principal}}
+									<a href="/{{../classe}}/{{../article.categorie}}/{{../article.type}}/{{../article._id}}/{{_id}}" class="principal_color">
+										<li style="background:{{name}}" title="{{name}}" id="{{filename1}}"></li>
+									</a>
+								{{else}}
+									<a href="/{{../classe}}/{{../article.categorie}}/{{../article.type}}/{{../article._id}}/{{_id}}">
+										<li style="background:{{name}}" title="{{name}}" id="{{filename1}}"></li>
+									</a>
+							{{/if}}																					
+						{{/each}}						
+					</ul>
+					<ul class="description">
+						<h2>Description de l'article</h2>
+						<p class="guaranty" style="display:none"><span>GARANTIE 6 Mois</span></p>
+						<form>
+							<label for="description">
+								<textarea>{{article.description}}	</textarea>
+							</label>
+							<input type="submit" value="Modifier">
+						</form>					
+						
+					</ul>
+					<ul class="description">
+						<h2>Autres Details</h2>
+						<form method="post" action="/admin/editArticleDetail/{{article._id}}" id="first_edit">
+							<h3 style="display:none"><strong><span>+</span>Modifier les details</strong></h3>
+							<div>
+							
+									<label for="name">
+										<p>
+											<span>Nom</span>
+											<input type="text" placeholder="Identifier votre article par un nom" value="{{article.name}}" name="name"/>									
+										</p>
+										<i class="required">Ce champ est obligatoire</i>
+									</label>
+									<label for="marque">
+										<p>
+											<span>Marque</span>
+											<input type="text" placeholder="Marque de l'article exemple : dolce&cabana" value="{{article.mark}}" name="marque"/>									
+										</p>
+										<i class="required">Ce champ est obligatoire</i>
+									</label>
+									<label for="detail_price">
+										<p>
+											<span>Prix en detail</span>
+											<input type="text" placeholder="prix en detail exemple: 200 $ ou 200 FC" value="{{article.detailPrice}}" name="detail_price"/>									
+										</p>									
+									</label>
+									<label for="gros_price">
+										<p>
+											<span>Prix en gros</span>
+											<input type="text" placeholder="prix en gros exemple: 200$ ou 200 FC" value="{{article.wholePrice}}" name="gros_price"/>									
+										</p>									
+									</label>
+									<label for="gros_number">
+										<p>
+											<span>Nombre en gros</span>
+											<input type="text" placeholder="Nombre d'article en gros" value="{{article.wholeNumber}}" name="gros_number"/>									
+										</p>									
+									</label>
+									<input type="submit" value="Modifier" style="background:rgba(0,128,192,1);color:white;border:none"/>
+								</div>
+						</form>					
+						
+					</ul>
+					<ul class="adress">
+						<h2>Point de distrubution</h2>
+						{{#if member}}
+							<li><span></span>RDC, Kinshasa, C/Barumbu, Avenue Kibati N°12</li>
+							<li><span></span>+243 81 751 23 84</li>
+							<li>24 /24 heures; 7 jours/7</li>
+								{{else}}								
+								<li><span></span>RDC, Kinshasa, C/Barumbu, Avenue Kibati N°12</li>
+								<li><span></span>+243 81 751 23 84</li>
+								<li>24 /24 heures; 7 jours/7</li>
+								<li>Veuillez vous <a href="/login" style="color:rgba(0,128,192,1)">Connectez</a> pour connaitre le point de distrubution le plus proche de chez vous</li>
+						{{/if}}
+					</ul>
+					
+					<ul class="warning">
+						<h2>Avertissement</h2>
+						<p>
+							Nous informons à tous les utilisateurs de la plateforme que 
+							les produits dispoble sur ce site sont certifiés et que toutes 
+							réclammations peut être formulée via nos differentes lignes de communication
+							<!--
+								ne sont en aucune facon vendue en ligne.
+								Pour les acheter veuillez svp vous rendre a l'adresse
+								du vendeur et le contacter personnellement.
+							-->
+						</p>
+					</ul>				
+				</div>
+			</article>
+				{{else}}
+					<h1 style="font-weight:normal;justify-content:center">Pas de contenue à valider ! <a href="/admin/content" style="background:rgba(0,128,192);color:white;padding:0.1em 0.5em">Actualisez</a></h1>
+			{{/if}}
+						
+			
+		</section>
+		
+		
+		{{#section "jquery"}}
+			<script type="text/javascript" src="/public/js/articleDetail.js"></script>			
+		{{/section}}
+	

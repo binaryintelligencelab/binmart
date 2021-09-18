@@ -1,0 +1,118 @@
+{{#section "head"}}
+	<title>Femmes</title>
+	<link rel="stylesheet" href="/public/css/post/post.css"/>
+	<meta name="viewport" content="width=device-width" initial-scale="1">
+	<style>
+	
+		span:first-letter{
+			text-transform:uppercase
+		}
+		
+	</style>
+{{/section}}
+		<header>
+			{{> menu}}			
+		</header>
+		<div id="link">
+			<p>
+				<a>Accueil</a> / <a>{{classe}} </a>
+			</p>
+			<p>
+				<span>avez-vous quelque chose à vendre ?</span> <a>OUI</a>
+			</p>
+		</div>
+		
+		<section id="banner">
+			<div class="banner">
+				<div class="banner_description">
+					<span class="banner_flag" style="background:url(/public/image/{{genre}}/{{banner_flag}})"></span>
+					<h1>{{genre}}<Br>{{style}}</h1>
+					<p>
+						{{description}}
+					</p>
+					<ul class="tags">						
+						<li class="shoe" style="background:url(/public/image/women/accessoire/m1.jpg) center;background-size:cover">
+							<em>Mango</em>
+						</li>						
+						<li class="shoe" style="background:url(/public/image/women/shoes/sh.png) center;background-size:cover">
+							<em>Shoprite</em>
+						</li>						
+						<li class="shoe" style="background:url(/public/image/women/shoes/sho.jpg) center;background-size:cover">
+							<em>Galaxy</em>
+						</li>								
+					</ul>
+				</div>
+				<div class="banner_illustration" style="background:url(/public/image/banner/{{path}}/banner.jpg) center;background-size:cover">
+					<p>
+						<strong><em>Maison </em><em style="color:{{bootiColor}}">{{bootiName}}</em></strong>
+						<span class="collection">{{bootiArticle}}</span>
+						<span class="price">{{bootiPrice}} <em>Prix promotionel</em></span>
+						<span class="adress">{{bootiAdresse}}</span>
+						<a>Details</a>
+					</p>
+				</div>
+			</div>
+			<ul class="recommandation" style="background:url(/public/image/women/shoes/ch.png) center no-repeat">
+				<span>Solde GALAXY<br/><em>Basket Dame</em></span>
+				<span>250 $ <em>500 $</em>-20 %<a>+</a></span>
+			</ul>
+		</section>
+		
+		<div id="post_wrapper">
+			<ul class="filter">	
+				
+				{{#each categorie}}
+					<li><a><em style="background:url(/public/image/thumbnail/{{../classe}}/{{name}}.png) center;background-size:cover"></em><span>{{name}}</span></a>
+						<ul style="width:100%" class="type">
+							{{#each type}}
+								<li><a href="/{{../../path }}/{{../name}}/{{.}}">{{.}}</a></li>
+							{{/each}}							
+						</ul>
+					</li>
+				{{/each}}				
+				
+			</ul>
+			
+			<div class="all_post_container">			
+				{{#each type}}		
+					<div class="all_post">
+						<a class="more" href="/{{../path}}/{{categorie}}">Voir +</a>
+						<p><span><em style="background:url(/public/image/thumbnail/{{../classe}}/{{categorie}}.png) center;background-size:cover"></em><strong>{{categorie}}</strong><em>{{articles_number}} Récommandée(s)</em></span>
+							<a href="/{{../path}}/{{categorie}}">Voir +</a>					
+						</p>
+						<ul class="all_post_wrapper">
+							
+							{{#each articles}}								
+									<li class="article">
+										{{#if filename1Edited}}
+											<p class="article_illustration" style="background:url(/public/image/{{classe}}/{{categorie}}/{{type}}/{{filename1Edited}}) center;background-size:cover">
+												<strong>{{boutiName}}</strong>
+											</p>
+											{{else}}
+												<p class="article_illustration" style="background:url(/public/image/{{classe}}/{{categorie}}/{{type}}/{{filename1}}) center;background-size:cover">
+													<strong>{{boutiName}}</strong>
+												</p>
+										{{/if}}																											
+										
+										<p class="article_description">
+											<strong><em>{{#if name}} {{name}} {{else}} {{definitiveName}}{{/if}}</em><em>{{#if mark}} (...{{mark}}) {{else}} (...{{definitiveMark }}) {{/if}}</em></strong>
+											<strong><em>{{#if detailPrice}} {{detailPrice}} {{else}} {{definitivePrice}}{{/if}}$</em><em>Prix d'achat en detail</em></strong>
+											<strong><em>{{#if description}} {{description}} {{else}} {{definitiveDescription}}{{/if}}</em></strong>
+											<a href="/{{../../path}}/{{../categorie}}/{{type}}/{{_id}}">Details</a>
+										</p>										
+									</li>
+								
+							{{/each}}
+							
+						</ul>
+					</div>
+				{{/each}}				
+			</div>
+			
+	</div>
+		<!--
+		<footer>
+			<h1 style="color:white">Footer</h1>
+		</footer>
+		-->
+	</body>

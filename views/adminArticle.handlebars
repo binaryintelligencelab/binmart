@@ -1,0 +1,329 @@
+	<!--
+	<head>
+		<meta charset="utf-8">
+		<title>article</title>
+		<link rel="stylesheet" href="style/AdminArticle.css"/>
+		<meta name="viewport" content="width=device-width" initial-scale="1">
+	</head>
+	-->
+	{{#section "head"}}
+		<link rel="stylesheet" type="text/css" href="/public/css/admin/AdminArticle.css"/>	
+	{{/section}}
+	<header>
+		{{> menu}}
+	</header>
+
+		<header>
+						
+		</header>
+		<div id="link">
+			<p>
+				<a>Home</a> \ <a>Femme</a> \ <a>Chaussures</a> \ <a>Basket Nike</a>
+			</p>
+			<p>
+				Avez-vous quelque chose a vendre ? <a>OUI</a>
+			</p>
+		</div>
+		<section id="article_wrapper">
+			<ul class="filter">	
+				<!--
+				<li><a><em style="background:url(image/women/vetement/small.png) center;background-size:cover"></em><span>Vetements</span></a></li>
+				<li><a><em style="background:url(image/women/lingerie/foul.jpg) center;background-size:cover"></em><span>Lingeries</span></a></li>
+				<li><a><em style="background:url(image/women/shoes/small.png) center;background-size:cover"></em><span>Chaussures</span></a></li>
+				<li><a><em style="background:url(image/women/accessoire/small2.png) center;background-size:cover"></em><span>Bijoux et montres</span></a></li>
+				<li><a><em style="background:url(image/women/sacs/small.png) center;background-size:cover"></em><span>Sacs et valises</span></a></li>
+				<li><a><em style="background:url(image/women/accessoire/foul.jpg) center;background-size:cover"></em><span>Foulards et chapeaux</span></a></li>
+				<li><a><em style="background:url(image/women/collection/small.png) center;background-size:cover"></em><span>Nos collections</span></a></li>
+				<li><a><em style="background:url(image/women/accessoire/small.jpg) center;background-size:cover"></em><span>Autres Accessoires</span></a></li>
+				-->
+			</ul>
+			<article>
+				<ul class="article_illustration">
+					<h2><span>Basket Dame <em>(...TURKIE)</em></span><span>210 $ <em>En Gros à partir de 5 paires</em></span></h2>
+					<li style="background-image:url(image/women/shoes/one.png)">
+						<span>
+							<em>En details</em>
+							<em>300 $</em>
+						</span>
+						<p><strong class="public"><i></i><em>5 Jours</em></strong><strong class="boost"><i></i><em>5 Jours<br/><span>Sky</span></em></strong><strong class="vue"><i></i><em>2 000</em></strong></p>					
+					</li>
+					<ul class="thumbnail">
+						<li class="active" style="background-image:url(image/women/shoes/onethumb.png)"><span title="supprimer">X</span></li>
+						<li style="background-image:url(image/women/shoes/twothumb.png);background-size:cover"><span title="supprimer">X</span></li>						
+						<form>
+							<p class="color"><em>Couleur actuelle</em><input type="color" style="width:50px"/><span>OK</span></p>
+							<p><input type="text" placeholder="Ajouter une image"/><span>Ajouter</span></p>
+						</form>						
+					</ul>
+					<form>
+						<h3><strong><span>+</span>Modification</strong></h3>
+						<div style="display:none">
+						<label for="classe">
+									<p>
+									<span>Classe</span><select name="classe" id="classe">
+										<option value=""></option>
+										<option value="femmes">Femmes</option>
+										<option value="hommes">Hommes</option>
+										<option value="hommes&femmes">Femmes et Hommes</option>
+										<option value="jeux&jouets">Jeux et jouets</option>
+										<option value="mobilier">Mobilier</option>
+										<option value="high-tech">High-tech</option>
+									</select>
+									</p>									
+									<i class="required">Ce champ est obligatoire</i>
+						</label>
+						<label for="age">
+									<p>
+										<span>Age</span><select name="age" id="age">
+										<option value=""></option>
+										<option value="adult">Adults</option>
+										<option value="enfants">Enfants</option>										
+									</select>																			
+									</p>
+									<i class="required">Ce champ est obligatoire</i>
+								</label>
+								<label for="category">
+									<p>
+										<span>Categorie</span><select name="category" id="category">
+										<option value=""></option>
+										<option value="vetement">Vetement</option>
+										<option value="chaussure">Chaussures</option>
+										<option value="lingerie">Lingerie</option>										
+									</select>
+																			
+									</p>
+									<i class="required">Ce champ est obligatoire</i>
+								</label>
+								<label for="type">
+									<p>
+										<span>Type</span>
+										<select name="type" id="type">
+										<option value=""></option>
+										<option value="robe">Robe</option>
+										<option value="jupe">Jupe</option>
+										<option value="chemisiers">Chemisier</option>										
+									</select>
+									</p>
+									<i class="required">Ce champ est obligatoire</i>
+								</label>
+								<label for="name">
+									<p>
+										<span>Nom</span>
+										<input type="text" placeholder="Identifier votre article par un nom" value="" name="name"/>									
+									</p>
+									<i class="required">Ce champ est obligatoire</i>
+								</label>
+								<label for="marque">
+									<p>
+										<span>Marque</span>
+										<input type="text" placeholder="Marque de l'article exemple : dolce&cabana" value="" name="marque"/>									
+									</p>
+									<i class="required">Ce champ est obligatoire</i>
+								</label>
+							</div>
+					</form>
+					<form class="panier">
+						<h3><strong><span>+</span>Panier</strong></h3>
+						<p>Veuillez choisir le temps de visibilite de l'article sur la plateforme; votre article sera visible qu'apres verification du payement</p>
+						<label>
+						<select>
+							<option>Un Jour pour 5$</option>
+							<option>Une Semaine pour 5$</option>
+							<option>Un Mois pour 5$</option>
+							<option>Une Trimestre pour 5$</option>
+							<option>Un Trimestre pour 5$</option>
+						</select>
+						</label>
+						<span>OK</span>
+					</form>
+					<form class="panier boost">
+						<h3><strong><span>+</span>Boosting</strong></h3>
+						<p>Veuillez choisir le temps de visibilite de l'article sur la plateforme; votre article sera visible qu'apres verification du payement</p>
+						<label>
+							<select>
+								<option>Top article</option>
+								<option>Second Article</option>
+								<option>Sky</option>								
+							</select>
+						</label>
+						<label>
+							<select>
+								<option>Un Jour pour 5$</option>
+								<option>Une Semaine pour 5$</option>
+								<option>Un Mois pour 5$</option>
+								<option>Une Trimestre pour 5$</option>
+								<option>Un Trimestre pour 5$</option>
+							</select>
+						</label>
+						<span>OK</span>
+					</form>
+					<form>						
+						<p class="delete"><span>Supprimer</span></p>
+						<p>Attention la suppression d'un article est une irerssible Lorem ipsum</p>
+					</form>
+				</ul>
+				<div class="article_description">
+					<ul class="description">
+						<h2 style="display:none">Description de l'article</h2>
+						<p class="guaranty" style="display:none"><span>GARANTIE 6 Mois</span></p>
+						<p>
+							Chaussure dame <strong>BASKET NIKE</strong>, en provenance de la turquie vous offre une sensation de 
+							bien etre lors de vos marche,en cuire elle vous donne une belle allure au pied ce qui a pour effet de 
+							donner de la valeur a vos jambes
+						</p>
+						<p class="edit"><span>Modifier</span></p>
+						<textarea></textarea>
+						<p class="edit submit"><span>Appliquer</span></p>
+					</ul>
+					<ul class="size">
+						<h2>Taille Disponible <em>Cliquer pour supprimer</em></h2>
+						<li title="supprimer">34</li>
+						<li title="supprimer">35</li>
+						<li title="supprimer">36</li>
+						<li title="supprimer">37</li>
+						<li title="supprimer">38</li>
+						<li title="supprimer">39</li>
+						<li title="supprimer">40</li>
+						<li title="supprimer">41</li>
+						<p class="add"><input type="number" placeholder="taille"/><span class="submit">Ajouter</span></p>
+					</ul>
+					<ul class="color">
+						<h2>Couleur dispoble</h2>
+						<li style="background:red" title="red"></li>
+						<li style="background:blue" title="blue"></li>
+						<li style="background:green" title="green"></li>
+						<li style="background:yellow" title="yellow"></li>
+						<li style="background:black" title="black"></li>
+						<li style="background:white" title="white"></li>
+						<form>
+							<h3>Ajouter une nouvelle couleur</h3>
+							<label for="first_image"><span>Premiere Image</span><input type="text">
+								<i class="required">Ce champ est obligatoire</i>
+							</label>
+							
+							<label for="first_image"><span>Deuxieme Image</span><input type="text">
+								<i class="required">Ce champ est obligatoire</i>
+							</label>
+							<label for="first_image"><span>Couleur de l'article</span><input type="color">
+								<i class="required">Ce champ est obligatoire</i>
+							</label>
+							<span class="add">Ajouter</span>
+						</form>
+					</ul>
+					<ul class="adress">
+						<h2>Point de vente</h2>
+						<h1><span>MANGO</span><span>Chaussures Mango</span></h1>
+						<li>RDC, Kinshasa, C/Limite, Avenue Poids lourd N°5</li>
+						<li>+243 81 000 00 00, +243 81 000 00 00</li>
+						<li>Lundi-Vendredi:7h00 à 00h00 | Samedi-Dimanche:8h00 à 22h00 </li>
+						
+					</ul>
+					<ul class="warning">
+						<h2>Avertissement</h2>
+						<p>
+							Nous informons a tous les utilisateurs de la plateforme que 
+							les produits dispoble sur ce site ne sont en aucune facon vendue en ligne.
+							Pour les acheter veuillez svp vous rendre a l'adresse
+							du vendeur et le contacter personnellement.
+						</p>
+					</ul>				
+				</div>
+			</article>			
+			<ul class="recommandation">				
+				<li>
+					<h3>Mango</h3>
+					<p class="recommantion_illustration" style="background:url(image/women/shoes/de.png) center;background-size:cover"></p>
+					<em>Basket Nike</em>
+					<p><span>N°10</span><span>Prix :400$</span></p>
+				</li>
+				<li>
+					<h3>Orca</h3>
+					<p class="recommantion_illustration" style="background:url(image/women/shoes/oik.png) center;background-size:cover"></p>
+					<em>Basket Puma</em>
+					<p><span>N°39</span><span>Prix :40$</span></p>
+				</li>
+				<li>
+					<h3>Orca</h3>
+					<p class="recommantion_illustration" style="background:url(image/women/shoes/sho.jpg) center;background-size:cover"></p>
+					<em>Basket Puma</em>
+					<p><span>N°40</span><span>Prix :70$</span></p>
+				</li>
+				<li>
+					<h3>Mango</h3>
+					<p class="recommantion_illustration" style="background:url(image/women/shoes/de.png) center;background-size:cover"></p>
+					<em>Basket Nike</em>
+					<p><span>N°10</span><span>Prix :400$</span></p>
+				</li>
+				<li>
+					<h3>Orca</h3>
+					<p class="recommantion_illustration" style="background:url(image/women/shoes/oik.png) center;background-size:cover"></p>
+					<em>Basket Puma</em>
+					<p><span>N°39</span><span>Prix :40$</span></p>
+				</li>
+				<li>
+					<h3>Orca</h3>
+					<p class="recommantion_illustration" style="background:url(image/women/shoes/sho.jpg) center;background-size:cover"></p>
+					<em>Basket Puma</em>
+					<p><span>N°40</span><span>Prix :70$</span></p>
+				</li>
+				
+			</ul>
+		</section>
+		<!--
+		<div id="recommanded_article">
+			<p><span><em>R</em><strong>Recommandations</strong><em> 20 produits récommandés</em></span>
+					<a>Voir +</a>					
+			</p>
+			<ul class="all_post_wrapper">
+				<li class="article">
+						<p class="article_illustration" style="background:url(image/women/shoes/ch.png) center;background-size:cover">
+							<strong>LAURA MODE</strong>
+						</p>
+						<p class="article_description">
+							<span>Basket Dame<em>(... USA )</em></span>
+							<span class="prix">210 $<em> Prix d'achat,Magasin Orca</em></span>
+							<span><em>Adresse; Av Du poids lourd, N°5, C/Limite</em></span>
+							<a>Details</a>
+						</p>
+					</li>
+					<li class="article">
+						<p class="article_illustration" style="background:url(image/women/shoes/ch.png) center;background-size:cover">
+							<strong>KIN MART</strong>
+						</p>
+						<p class="article_description">
+							<span>Sandale Cuire<em>(... TURKIE )</em></span>
+							<span class="prix">210 $<em> Prix d'achat,Magasin Orca</em></span>
+							<span><em>Adresse; Av Du poids lourd, N°5, C/Limite</em></span>
+							<a>Details</a>
+						</p>
+					</li>
+					<li class="article">
+						<p class="article_illustration" style="background:url(image/women/vetement/robe2.png) center;background-size:cover">
+							<strong>GALAXY</strong>
+						</p>
+						<p class="article_description">
+							<span>Robe Soirée<em>(... TURKIE )</em></span>
+							<span class="prix">210 $<em> Prix d'achat,Magasin Orca</em></span>
+							<span><em>Adresse; Av Du poids lourd, N°5, C/Limite</em></span>
+							<a>Details</a>
+						</p>
+					</li>
+					<li class="article">
+						<p class="article_illustration" style="background:url(image/women/shoes/fer.png) center;background-size:cover">
+							<strong>ALPINA</strong>
+						</p>
+						<p class="article_description">
+							<span>Sandale Beige<em>(... TURKIE )</em></span>
+							<span class="prix">210 $<em> Prix d'achat,Magasin Orca</em></span>
+							<span><em>Adresse; Av Du poids lourd, N°5, C/Limite</em></span>
+							<a>Details</a>
+						</p>
+					</li>
+					
+			</ul>				
+		</div>
+		-->
+		<footer>
+			<h1 style="color:white">Footer</h1>
+		</footer>
+	

@@ -1,0 +1,105 @@
+{{#section "head"}}
+	<link rel="stylesheet" type="text/css" href="/public/css/admin/typicalPage.css"/>	
+{{/section}}
+<header>
+	{{> superAdminMenu}}
+</header>
+				
+	<div id="form_container">			
+			<form class="article_classe" method="post" action="/admin/addtypical">
+				<label for="classe">
+					Classe :
+					<select id="classe" name="classe">
+						<option></option>
+					</select>
+					{{#if noClasse}}
+						<span class="required">Veuillez selectionez la classe</span>
+					{{/if}}
+					{{#if body.classe}}
+						<em id="bodyClasse" style="display:none">{{body.classe}}</em>
+					{{/if}}
+				</label>
+				<label for="category">
+					Categorie :
+					<select id="category" name="category">
+						<option></option>
+					</select>
+					{{#if noCategory}}
+						<span class="required">Veuillez selectionez la category</span>
+					{{/if}}
+					{{#if body.category}}
+						<em id="bodyCategorie" style="display:none">{{body.category}}</em>
+					{{/if}}					
+				</label>
+			
+				<h2>Ajoutez une nouvelle caracteristique</h2>
+				<label for="detailname">
+					Nom:<input type="text" value="{{body.detailname}}" placeholder="Caracteristique" name="detailname"/>
+					{{#if nodetailname}}
+						<span class="required">Inserez le nom de la caracteristique</span>
+					{{/if}}
+				</label>
+				<label for="detailval">
+					Valeur:<input type="text" value="{{body.detailval}}" placeholder="Valeur" name="detailval"/>
+					{{#if nodetailval}}
+						<span class="required">Inserez la valeur de la caracteristique</span>
+					{{/if}}
+				</label>
+				<input type="submit" value="Ajoutez" placeholder="Valeur" class="submit"/>
+				{{#if detail_existed}}
+					<span style="padding-top:0.5em;color:rgba(255,0,0,0.7)">Cette caracteristique existe deja</span>
+				{{/if}}
+			</form>
+			<!--
+			<form class="article_classe" method="post" action="" id="nameEdited">		
+				
+				<h2>Modifiez la caracteristique</h2>
+				<label for="classe" style="display:none"><input type="text" name="classe" id="classEdited"/></label>
+				<label for="category" style="display:none"><input type="text" name="category" id="categoryEdited"/></label>
+				<label for="name">Nom:<input type="text" name="name" value="{{detail.name}}" id="typicalEdited"/></label>
+				<input type="submit" value="Editer" class="submit"/>				
+				<a href="/admin/removeSpecificAttribute/{{detail._id}}" class="submit">Delete</a>
+				{{#if nameExisted}}
+					<span style="padding-top:0.5em;color:rgba(255,0,0,0.7)">Cette caracteristique existe deja</span>
+				{{/if}}				
+			</form>
+			-->
+			<div id="table">			
+				<h2>Toutes les valeurs</h2>
+				<table>
+					<!--
+					 <tr>
+								<th >N°</th>
+								<th class="name">Nom</th>
+								<th class="value">Valeur</th>						
+								<th>Action</th>
+							 </tr>
+							 <tr>
+								<td><a href="">1</a></td>
+								<td>Matiere</td>
+								<td>first,second,third</td>
+								
+								<td>
+									<a href="">Delete</a>
+									<a href="">Modifier</a>
+								</td>
+							 </tr>					  
+						-->	
+					</table>
+				<!--
+				<ul>				
+					{{#each detail.val}}
+						<li>							
+							<input type="text" value="{{.}}" />
+							<em class="edit">Modifier</em>
+							<em class="delete">Supprimer</em>
+						</li>
+					{{/each}}				
+				</ul>
+				-->
+			</div>
+		</div>
+		{{#section "jquery"}}
+			<script type="text/javascript" src="/public/js/typicalPage.js"></script>			
+		{{/section}}
+</html>

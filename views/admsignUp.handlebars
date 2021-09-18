@@ -1,0 +1,224 @@
+{{#section "head"}}
+	<link rel="stylesheet" type="text/css" href="/public/css/signUp.css"/>
+{{/section}}
+
+<header>
+	{{> menu}}
+</header>
+<section id="login_container">
+				<div class="login_wrapper">
+					<div class="login_form">
+							<h1>Compte pour vendeur</h1>							
+							<form method="post" action="/admsignup">								
+								<label for="adminname">
+									Nom
+										<input type="text" placeholder="votre nom; exemple : Kapenda" value="{{body.adminname}}" name="adminname" autocomplete="off"/>									
+									{{#if no_adminname}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									{{#if badadminname}}
+										<span class="required">{{badadminname}}</span>
+									{{/if}}
+								</label>
+								<label for="surname">
+									Prénom
+										<input type="text" placeholder="votre prenom; exemple: Robert" value="{{body.surname}}" name="surname" autocomplete="off"/>									
+									{{#if no_surname}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									{{#if badsurname}}
+										<span class="required">{{badadminname}}</span>
+									{{/if}}
+								</label>
+								<label for="username">
+									Indentifiant
+										<input type="text" placeholder="Votre nom d'utisateur" value="{{body.username}}" name="username" autocomplete="off"/>
+									{{#if no_username}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									{{#if badusername}}
+										<span class="required">{{badusername}}</span>
+									{{/if}}
+									{{#if user_exist}}
+										<span class="required">{{user_exist}}</span>
+									{{/if}}
+								</label>
+								
+								<label for="name">
+									Nom de l'établissement
+										<input type="text" placeholder="votre nom complet" value="{{body.name}}" name="name" autocomplete="off"/>									
+									{{#if no_name}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									{{#if badname}}
+										<span class="required">{{badname}}</span>
+									{{/if}}
+								</label>
+								<label for="rccm">
+									RCCM
+										<input type="text" placeholder="Votre rccm" value="{{body.rccm}}" name="rccm" autocomplete="off"/>
+									{{#if no_rccm}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									{{#if badrccm}}
+										<span class="required">{{badrccm}}</span>
+									{{/if}}
+								</label>
+								<!--
+								<label for="email">
+									<input type="email" placeholder="Votre address mail actuelle" value="{{body.email}}" name="email"/>
+									{{#if no_email}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+								</label>
+								-->
+								<label for="telephone">
+									Numero de Telephone
+										<input type="tel" placeholder="Numero de telephone" value="{{body.telephone}}" name="telephone" autocomplete="off"/>
+					
+									{{#if no_telephone}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									
+									{{#if user_phone_exist}}
+										<span class="required">{{user_phone_exist}}</span>
+									{{/if}}
+									{{#if no_valid_operator}}
+										<span class="required">{{no_valid_operator}}</span>
+									{{/if}}
+									{{#if no_valid_number}}
+										<span class="required">{{no_valid_number}}</span>
+									{{/if}}
+									
+									{{#if check_number}}
+										<span class="required">{{check_number}}</span>
+									{{/if}}
+									
+								</label>
+								<!--
+								<label for="telephone_mobil_bank">
+									Numero de Telephone de transaction
+										<input type="tel" placeholder="Numero de telephone" value="{{body.telephone_mobil_bank}}" name="telephone_mobil_bank"/>
+					
+									{{#if no_telephone_mobil_bank}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									
+									{{#if no_valid_telephone_mobil_bank}}
+										<span class="required">{{no_valid_telephone_mobil_bank}}</span>
+									{{/if}}
+									{{#if no_valid_operator_mobil_bank}}
+										<span class="required">{{no_valid_operator_mobil_bank}}</span>
+									{{/if}}
+									{{#if check_mobil_bank}}
+										<span class="required">{{check_mobil_bank}}</span>
+									{{/if}}
+									{{#if mobil_bank_exist}}
+										<span class="required">{{mobil_bank_exist}}</span>
+									{{/if}}
+								</label>
+								-->
+								<label for="province">
+									Province
+										<input type="text" placeholder="Province" value="{{body.province}}" name="province" autocomplete="off"/>
+									{{#if no_province}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									{{#if badprovince}}
+										<span class="required">{{badprovince}}</span>
+									{{/if}}
+								</label>
+								
+								<label for="town">
+									Ville
+										<input type="text" placeholder="Ville" value="{{body.town}}" name="town" autocomplete="off"/>
+									{{#if no_town}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									{{#if badtown}}
+										<span class="required">{{badtown}}</span>
+									{{/if}}
+								</label>
+								
+								<label for="commune">
+									Commune
+										<input type="text" placeholder="Commune" value="{{body.commune}}" name="commune" autocomplete="off"/>
+									{{#if no_commune}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									{{#if badcommune}}
+										<span class="required">{{badcommune}}</span>
+									{{/if}}
+								</label>
+								
+								<label for="quarter">
+									Quartier
+										<input type="text" placeholder="Quartier" value="{{body.quarter}}" name="quarter" autocomplete="off"/>
+									{{#if no_quarter}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									{{#if badquarter}}
+										<span class="required">{{badquarter}}</span>
+									{{/if}}
+								</label>								
+								
+								<label for="avenue">
+									Avenue
+										<input type="text" placeholder="Avenue" value="{{body.avenue}}" name="avenue" autocomplete="off"/>
+									{{#if no_avenue}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									{{#if badavenue}}
+										<span class="required">{{badquarter}}</span>
+									{{/if}}
+								</label>
+								
+								<label for="numero">
+									Numero
+										<input type="text" placeholder="Numero" value="{{body.numero}}" name="numero" autocomplete="off"/>
+									{{#if no_numero}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									{{#if badnumero}}
+										<span class="required">{{badnumero}}</span>
+									{{/if}}
+								</label>
+								
+								<label for="password">
+									Mot de passe
+									<input type="password" placeholder="Votre mot de passe" value="{{body.password}}" name="password"/>
+									<span>Miminum 8 caracteres</span>
+									{{#if no_password}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									{{#if badpassword}}
+										<span class="required">{{badpassword}}</span>
+									{{/if}}
+									{{#if check_password_length}}
+										<span class="required">{{check_password_length}}</span>
+									{{/if}}
+								</label>
+								<label for="password_confirmation">
+									Confirmez le mot de passe
+									<input type="password" placeholder="Confirmer votre mot passe" value="{{body.password_confirmation}}" name="password_confirmation"/>
+									{{#if no_password_confirmation}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									{{#if check_password}}
+											<span class="required">{{check_password}}</span>
+									{{/if}}
+									{{#if badconfirmation}}
+											<span class="required">{{badconfirmation}}</span>
+									{{/if}}
+								</label>							
+								<p>
+									En  creant un compte vous accepter les 
+									<span class="term_of_use"> conditions generales</span> d'utilisation
+								</p>
+								<p class="login_register">
+									<input type="submit" value="S'inscrire" name="register"class="register"/>									
+								</p>
+							</form>
+					</div>
+				</div>
+			</section>

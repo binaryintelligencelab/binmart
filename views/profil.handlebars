@@ -1,0 +1,131 @@
+{{#section "head"}}
+	<title>Profil</title>
+	<link rel="stylesheet" href="/public/css/profil/profil.css"/>
+	<meta name="viewport" content="width=device-width" initial-scale="1">
+{{/section}}
+	<header>
+		{{> menu}}
+	</header>
+	
+	<div id="profil_container">			
+			<section class="container">
+				<div class="header">
+					<p>						
+						<span></span>
+						<em style="text-transform:uppercase">{{user.name}} {{user.surname}}</em>
+					</p>
+				</div>
+				<section id="login_container">
+					<aside>
+						<ul>
+							<li><span>Nom : </span><span>{{user.name}}</span></li>
+							<li><span>Post-Nom : </span><span>{{user.surname}}</span></li>
+							<li><span>Identifiant : </span><span>{{user.username}}</span></li>
+							<li><span>Tel : </span><span>{{user.telephone}}</span></li>
+							<li><span>Ville : </span><span>{{user.town}}</span></li>
+							<li><span>Commune : </span><span>{{user.commune}}</span></li>
+							<li><img src="/public/image/logo.jpg"/></li>
+						</ul>
+					</aside>
+					<div class="login_wrapper">
+						<ul class="inside_menu">
+							<li class="active"><a href="/profil/identite">Mon Identite</a></li>
+							<li><a href="/profil/achat">Mes Achats</a></li>
+						</ul>
+						<div class="login_form">
+														
+							<form method="post" action="/user/edit_profil">
+								<label for="name">
+									<em>Nom</em>
+									: <input type="text" placeholder="votre nom complet" value="{{user.name}}" name="name"/>									
+									
+								</label>
+								<label for="surname">
+									<em>Prenom</em>
+									: <input type="text" placeholder="votre nom complet" value="{{user.surname}}" name="surname"/>									
+									
+								</label>
+								<label for="username">
+									<em>Identifiant</em>
+									: <input type="text" placeholder="Votre nom d'utisateur" value="{{user.username}}" name="username"/>
+									
+								</label>
+								
+								<!--
+								<label for="email">
+									<input type="email" placeholder="Votre address mail actuelle" value="{{body.email}}" name="email"/>
+									{{#if no_email}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+								</label>
+								-->
+								<!--
+								<label for="telephone">
+									<em>Telephone</em>
+									: <input type="tel" placeholder="Numero de telephone" value="{{user.telephone}}" name="telephone"/>
+					
+									
+								</label>								
+								-->
+								<label for="town">
+									<em>Ville</em>
+									: <input type="text" placeholder="Votre ville" value="{{user.town}}" name="town"/>
+									
+								</label>
+								<label for="commune">
+									<em>Commune </em>
+									: <input type="text" placeholder="Votre ville" value="{{user.commune}}" name="commune"/>
+									
+								</label>
+								
+								
+								<!--
+								<p>
+									En  creant un compte vous accepter les 
+									<span class="term_of_use"> conditions generales</span> d'utilisation
+								</p>
+								-->
+								<p class="login_register">
+									<input type="submit" value="Modifier" name="register" class="register"/>									
+								</p>
+							</form>
+							
+							<form method="post" action="/user/edit_password" class="password_edit">
+								<h1>Modifier le mot de passe</h1>
+								<label for="lastpassword">
+									Mot de passe Actual
+									: <input type="password" placeholder="Votre mot de passe" value="{{lastpassword}}" name="lastpassword"/>
+									{{#if nolastpassword}}<span style="color:red">Reinseignez correctment ce champs</span>{{/if}}
+									{{#if check_lastpassword}}<span style="color:red">Mot de passe incorrect</span>{{/if}}									
+								</label>
+								
+								<label for="newpassword">
+									Nouveau Mot de passe
+									: <input type="password" placeholder="Votre mot de passe" value="{{newpassword}}" name="newpassword"/>
+									{{#if nonewpassword}}<span style="color:red">Reinseignez correctment ce champs</span>{{/if}}
+								</label>
+								<p class="login_register">
+									<input type="submit" value="Modifier" name="register"class="register"/>									
+								</p>
+							</form>
+							<!--
+							<form method="post" action="/user/edit_phone" class="password_edit">
+								<h1>Modifier le numero de telephone</h1>
+								<label for="lastphone">
+									Numero Actual
+									: <input type="password" placeholder="Votre mot de passe" value="{{body.phone}}" name="lastphone"/>
+								</label>
+								<label for="newphone">
+									Nouveau Numero
+									: <input type="password" placeholder="Votre mot de passe" value="{{body.newphone}}" name="newphone"/>
+								</label>
+								<p class="login_register">
+									<input type="submit" value="Modifier" name="register"class="register"/>									
+								</p>
+							</form>
+							-->
+					</div>
+					</div>
+				</section>
+			</section>
+		</div>

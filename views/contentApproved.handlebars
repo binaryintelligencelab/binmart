@@ -1,0 +1,208 @@
+{{#section "head"}}
+	<title>article</title>
+	<link rel="stylesheet" href="/public/css/admin/contentApproved.css"/>
+	<meta name="viewport" content="width=device-width" initial-scale="1"/>
+		<style>				
+			#article_wrapper ul.article_illustration .thumbnail li.active{				
+				border-bottom:5px solid {{color.name}};					
+			}
+		</style>
+		{{#if adminArticle}}
+			<style>
+			
+			</style>			
+		{{/if}}
+{{/section}}
+		<header>
+			{{> superAdminMenu}}		
+		</header>
+		<!--
+		<div id="link">
+			<p>
+				<a>Acceuil</a> | <a>{{classe}}</a> | <a>{{select_categorie}}</a> | <a>{{type}}</a> | <a>{{article.name}}</a>
+			</p>
+			<p>
+				Avez-vous quelque chose a vendre ? <a>OUI</a>
+			</p>
+		</div>
+		-->
+		{{#if article}}
+		<section id="article_wrapper">
+			
+			<article>
+				<ul class="article_illustration" id="article_illustration">
+					<h2><span>{{#if article.name}} {{article.name}} {{else}} {{article.definitiveName}}{{/if}}<em>{{#if article.mark}} (...{{article.mark}}) {{else}} (...{{article.definitiveMark}}){{/if}}</em></span><span>{{#if article.wholePrice}} {{article.wholePrice}} {{else}} {{article.definitiveWholePrice}} {{/if}}$ <em>En Gros à partir de {{#if article.wholeNumber}} {{article.wholeNumber}} {{else}} {{article.definitiveWholeNumber}}{{/if}} paires</em></span></h2>
+									
+																
+											<section id="{{filename1}}" class="illustration_detail principale activeted">
+												
+											{{#if color.filename1Edited}}
+												<li style="background-image:url(/public/image/{{classe}}/{{article.categorie}}/{{article.type}}/{{color.filename1Edited}})" id="{{color._id}}">
+													<span>
+													
+														<em>En details</em>
+														<em>{{#if article.detailPrice}} {{article.detailPrice}} {{else}} {{article.definitivePrice}}{{/if}}$</em>
+													</span>
+													<p>
+														{{#unless color.principal}}
+															{{#if color.active}}
+															<a href="/admin/deactiveColor/{{article/_id}}/{{color._id}}"style="background:yellow" title="desactivé la couleur"></a>
+															{{else}}
+																<a href="/admin/activeColor/{{article._id}}/{{color._id}}"style="background:blue" title="activé la couleur"></a>
+															{{/if}}
+														{{/unless}}	
+														
+														
+														{{#if article.flag}}
+															<a href="/admin/deactivate/{{article._id}}"  title="Désactivé l'article" style="background:red"></a>
+															
+															{{else}}
+																<a href="/admin/activate/{{article._id}}"  title="Activé l'article" style="background:green"></a>
+															
+														{{/if}}
+													</p>
+												</li>
+											{{/if}}
+											{{#unless color.filename1Edited}}
+											
+												<li style="background-image:url(/public/image/{{classe}}/{{article.categorie}}/{{article.type}}/{{color.filename1}})" id="{{color._id}}">
+													<span>
+													
+														<em>En details</em>
+														<em>{{#if article.detailPrice}} {{article.detailPrice}} {{else}} {{article.definitivePrice}}{{/if}}$</em>
+													</span>
+													<p>
+														{{#unless color.principal}}
+															{{#if color.active}}
+															<a href="/admin/deactiveColor/{{article/_id}}/{{color._id}}"style="background:yellow" title="desactivé la couleur"></a>
+															{{else}}
+																<a href="/admin/activeColor/{{article._id}}/{{color._id}}"style="background:blue" title="activé la couleur"></a>
+															{{/if}}
+														{{/unless}}													
+														
+													</p>
+												</li>
+											{{/unless}}
+												<ul class="thumbnail">
+													{{#if color.filename1Edited}}
+														<li class="active" style="background-image:url(/public/image/{{classe}}/{{article.categorie}}/{{article.type}}/{{color.filename1Edited}})"></li>
+													{{/if}}
+													{{#unless color.filename1Edited}}
+														<li class="active" style="background-image:url(/public/image/{{classe}}/{{article.categorie}}/{{article.type}}/{{color.filename1}})"></li>
+													{{/unless}}
+													
+													{{#if color.filename2Edited}}
+														<li style="background-image:url(/public/image/{{classe}}/{{article.categorie}}/{{article.type}}/{{color.filename2Edited}})"></li>
+													{{/if}}
+													{{#unless color.filename2Edited}}
+													<li style="background-image:url(/public/image/{{classe}}/{{article.categorie}}/{{article.type}}/{{color.filename2}})"></li>
+													{{/unless}}
+													
+													
+												</ul>
+												
+											</section>				
+					
+				
+					
+				</ul>
+				<div class="article_description">
+					
+					<ul class="color">
+						<h2>Couleur dispoble</h2>
+						{{#each allColors}}
+							{{#if principal}}
+									<a href="/admin/contentapproval/{{../classe}}/{{../article.categorie}}/{{../article.type}}/{{../article._id}}/{{_id}}" class="principal_color">
+										<li style="background:{{name}}" title="{{name}}" id="{{filename1}}"></li>
+									</a>
+								{{else}}
+									<a href="/admin/contentapproval/{{../classe}}/{{../article.categorie}}/{{../article.type}}/{{../article._id}}/{{_id}}">
+										<li style="background:{{name}}" title="{{name}}" id="{{filename1}}"></li>
+									</a>
+							{{/if}}																					
+						{{/each}}						
+					</ul>
+					
+					<form method="post" action="/admin/contentvalidation/{{article._id}}/{{color._id}}">
+						<ul class="description">
+							<h2>Description de l'article</h2>
+							
+							<label for="description"><textarea name="description">{{#if article.description}} {{article.description}} {{else}} {{article.definitiveDescription}}{{/if}}</textarea></label>
+						</ul>
+					<!--
+						<ul class="description caracteristique">
+							<h2>Caracteristiques</h2>
+							{{#each typical}}
+								{{#each typicalValue}}
+									<label for="typical">
+										
+										<input type="text" name="typical" value="{{../typicalName}}"/><input type="text" name="typical" value="{{.}}"/>
+									</label>
+								{{/each}}
+								
+							{{/each}}
+							
+						</ul>
+						-->				
+					<ul class="size">
+						<h2>Taille Disponible</h2>						
+						<label for="size"><input type="text" placeholder="taille" name="size"  value="{{article.size}}"/> </label>					
+					</ul>
+					<div id="first_edit">
+					<h3><strong>Autres details</strong></h3>
+							<div>
+							
+									<label for="name">
+										<p>
+											<span>Nom</span>
+											<input type="text" placeholder="Identifier votre article par un nom" value="{{#if article.name}} {{article.name}} {{else}} {{article.definitiveName}}{{/if}}" name="name"/>									
+										</p>
+										<i class="required">Ce champ est obligatoire</i>
+									</label>
+									
+									<label for="mark">
+										<p>
+											<span>Marque</span>
+											<input type="text" placeholder="Marque de l'article exemple : dolce&cabana" value="{{#if article.mark}} {{article.mark}} {{else}} {{article.definitiveMark}} {{/if}}" name="mark"/>									
+										</p>
+										<i class="required">Ce champ est obligatoire</i>
+									</label>
+									
+									<label for="detail_price">
+										<p>
+											<span>Prix en detail</span>
+											<input type="text" placeholder="prix en detail exemple: 200 $ ou 200 FC" value="{{#if article.detailPrice}} {{article.detailPrice}} {{else}} {{article.definitivePrice}}{{/if}}" name="detail_price"/>									
+										</p>									
+									</label>
+									<label for="wholePrice">
+										<p>
+											<span>Prix en gros</span>
+											<input type="text" placeholder="prix en gros exemple: 200$ ou 200 FC" value="{{#if article.wholePrice}} {{article.wholePrice}} {{else}} {{article.definitiveWholePrice}} {{/if}}" name="wholePrice"/>									
+										</p>									
+									</label>
+									<label for="wholeNumber">
+										<p>
+											<span>Nombre en gros</span>
+											<input type="text" placeholder="Nombre d'article en gros" value="{{#if article.wholeNumber}}  {{article.wholeNumber}} {{else}} {{article.definitiveWholeNumber}} {{/if}}" name="wholeNumber"/>									
+										</p>									
+									</label>
+									
+								</div>
+						</div>
+						<p class="validation">
+							<a class="cancel" href="admin/invalidation/{{article._id}}">Invalider</a>
+							<input type="submit" value="OK" class="submit"/>
+						</p>
+					</form>				
+				</div>
+			</article>
+			
+		</section>
+			{{else}}
+				<h1 style="margin-top:4em;text-align:center;font-size:1.5em">Aucun Article a valider</h1>
+		{{/if}}
+		
+		{{#section "jquery"}}
+			<script type="text/javascript" src="/public/js/articleDetail.js"></script>			
+		{{/section}}
+	

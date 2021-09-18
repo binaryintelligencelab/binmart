@@ -1,0 +1,104 @@
+{{#section "head"}}
+	<title>article</title>
+	<link rel="stylesheet" href="/public/css/article/approvedPage.css"/>
+	<meta name="viewport" content="width=device-width" initial-scale="1"/>
+		<style>				
+			#article_wrapper ul.article_illustration .thumbnail li.active{				
+				border-bottom:5px solid {{color.name}};					
+			}
+		</style>
+		{{#if adminArticle}}
+			<style>
+				#article_wrapper{
+					margin-bottom:600px;
+					border:none;
+				}
+			</style>			
+		{{/if}}
+{{/section}}
+		
+		<header>
+			{{> superAdminMenu}}		
+		</header>
+		{{#if article}}
+		<div id="link">
+			<p>
+				<a><strong>Classe: </strong></a><a>{{article.classe}}</a><a><strong>Categorie : </strong>{{article.categorie}}</a><a><strong>Type : </strong>{{article.type}}</a><a><strong>Nom : </strong>{{article.name}}</a>
+			</p>
+			
+		</div>
+		{{/if}}
+		
+				<section id="article_wrapper">
+					{{#if article}}
+						<article>						
+							<ul class="article_illustration" id="article_illustration">						
+										
+								{{#if color.filename1Edited}}												
+									<li style="background-image:url(/public/image/{{article.classe}}/{{article.categorie}}/{{article.type}}/{{color.filename1Edited}})" id="{{color._id}}">
+										<form class="form">
+											<label for="valide"> Valide<input type="radio" name="checkbox" value="valide"/> </label>
+											<label for="nonvalide">Non Valide<input type="radio" name="checkbox" value="nonvalide" checked/> </label>
+										</form>										
+									</li>
+									{{#unless color.filename2Edited}}
+										<li style="background-image:url(/public/image/{{article.classe}}/{{article.categorie}}/{{article.type}}/{{color.filename2}})" id="{{color._id}}">
+											<!--
+											<form class="form">
+												<label for="valide"> Valide<input type="radio" name="checkbox" value="valide"/> </label>
+												<label for="nonvalide">Non Valide<input type="radio" name="checkbox" value="nonvalide" checked/> </label>
+											</form>	
+												-->
+										</li>
+									{{/unless}}
+								{{/if}}
+								
+								
+								{{#if color.filename2Edited}}
+									{{#unless color.filename1Edited}}
+										<li style="background-image:url(/public/image/{{article.classe}}/{{article.categorie}}/{{article.type}}/{{color.filename1}})" id="{{color._id}}">
+											<!--
+											<form class="form">
+												<label for="valide"> Valide<input type="radio" name="checkbox" value="valide"/> </label>
+												<label for="nonvalide">Non Valide<input type="radio" name="checkbox" value="nonvalide" checked/> </label>
+											</form>
+												-->
+										</li>
+									{{/unless}}
+									<li style="background-image:url(/public/image/{{article.classe}}/{{article.categorie}}/{{article.type}}/{{color.filename2Edited}})" id="{{color._id}}">
+										<form class="form">
+											<label for="valide2"> Valide<input type="radio" name="checkbox2" value="valide2"/> </label>
+											<label for="nonvalide2">Non Valide<input type="radio" name="checkbox2" value="nonvalide2" checked/> </label>
+										</form>
+										
+									</li>
+								{{/if}}
+								
+								
+																
+							</ul>
+							<div class="edit_image">
+								<form method="post" action="/admin/editColor/{{article._id}}/{{color._id}}">
+									<p class="color" id="{{color._id}}"> <em>Actualisez la couleur actuelle</em><input type="color" name="color" style="width:50px" value="{{color.name}}"/><button type="submit" class="span">OK</button> {{#if color_existed}}<span style="color:red"> Désolé Couleur existante</span>{{/if}}</p>								
+										{{#if color_existed}}
+											<p style="color:red;font-weight:bold">Un article ne peut avoir deux couleur identique</p>
+										{{/if}}
+										
+								</form>
+							</div>
+							<a href="/admin/approved/novalide/novalide/{{color._id}}" id="submit" style="">Soumettre</a>
+						</article>
+					{{/if}}
+					{{#unless article}}
+						<h1 style="margin-top:8em">Pas d'article à valider</h1>
+					{{/unless}}
+					
+				</section>
+			
+		
+		
+		
+		{{#section "jquery"}}
+			<script type="text/javascript" src="/public/js/articleApproved.js"></script>			
+		{{/section}}
+	

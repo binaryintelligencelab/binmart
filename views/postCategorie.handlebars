@@ -1,0 +1,61 @@
+{{#section "head"}}
+	<title>Femmes</title>
+	<link rel="stylesheet" href="/public/css/post/post.css"/>
+	<meta name="viewport" content="width=device-width" initial-scale="1">
+	<style>
+		#article_name:first-letter{
+			text-transform:uppercase;
+		}
+	</style>
+{{/section}}
+		<header>
+			{{> menu}}			
+		</header>
+		<div id="link">
+			<p>
+				<a>Accueil</a> / <a>{{classe}} </a> / <a>{{select_categorie}}</a>
+			</p>
+			<p>
+				<span>Avez-vous quelque chose à vendre ?</span> <a>OUI</a>
+			</p>
+		</div>		
+		<div id="post_wrapper" style="margin-top:0.5em">
+			<ul class="filter">	
+				{{#each categorie}}
+					<li><a><em style="background:url(/public/image/thumbnail/{{../classe}}/{{name}}.png) center;background-size:cover"></em><span>{{name}}</span></a>
+						<ul style="width:100%" class="type">
+							{{#each type}}
+								<li><a href="/{{../../classe}}/{{../name}}/{{.}}">{{.}}</a></li>
+							{{/each}}							
+						</ul>
+					</li>
+				{{/each}}				
+			</ul>
+		<div class="all_post_container">			
+			{{#each type}}		
+			<div class="all_post">
+				<a class="more" href="/{{../classe}}/{{../select_categorie}}/{{name}}">Voir +</a>
+				<p><span><em style="background:url(/public/image/thumbnail/{{../classe}}/{{../select_categorie}}.png) center;background-size:cover"></em><strong>{{name}}</strong><em> Récommandée(s)</em></span>
+					<a href="/{{../classe}}/{{../select_categorie}}/{{name}}">Voir +</a>					
+				</p>
+				<ul class="all_post_wrapper">
+					{{#each articles}}
+						<li class="article">
+							<p class="article_illustration" style="background:url(/public/image/{{classe}}/{{categorie}}/{{type}}/{{filename1}}) center;background-size:cover">
+								<strong style="text-transform:uppercase">{{boutiName}}</strong>
+							</p>
+							<p class="article_description">
+								<strong><em>{{definitiveName}}</em> <em>(...{{definitiveMark}})</em></strong>
+								<strong><em>{{definitivePrice}}$</em><em>Prix d'achat en detail</em></strong>
+								<strong><em>{{definitiveDescription}}</em></strong>
+								<a href="/{{../../classe}}/{{categorie}}/{{../name}}/{{_id}}">Details</a>
+							</p>
+						</li>
+					{{/each}}
+					
+				</ul>
+			</div>
+			{{/each}}				
+		</div>
+	</div>		
+	</body>

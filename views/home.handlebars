@@ -1,0 +1,324 @@
+{{#section "head"}}
+	<title>Home</title>
+	<link rel="stylesheet" href="/public/css/home/home.css"/>
+	<meta name="viewport" content="width=device-width" initial-scale="1">
+{{/section}}
+
+<header>
+	{{> menu}}
+	<div id="banner">
+				<div>
+					<article class="banner_description">
+						<h2>Bienvenue sur</h2>
+						<h1>BinMart</h1>
+						<p>
+							BookitOn vous permet de trouvez le prix d'un arcticle ( robe,chaussure,sandales,... ) que vous
+							cherchez et son point de ventes ,puis facilement vous pouvez vous rendre sur place pour vous le procurer
+						</p>
+					</article>				
+					<article class="solde">
+						<h1><span>98%</span><span>Economie du temps</span></h1>
+						<h1><span>98%</span><span>Maitrise du budget</span></h1>
+						<h1><span>98%</span><span>Economie d'énergie</span></h1>
+					</article>
+				</div>
+	</div>
+	<div id="categorie">
+			<section class="women">
+				<article class="categorie_description">
+					<h1>Femmes<br/>Classiques</h1>
+					<p>
+						Trouver facilement le prix et le point de vente de tous les articles
+						feminins.
+					</p>
+					<p class="tags">
+						{{#each women}}
+							<a href="/femmes/{{.}}" class="tag">{{.}}</a>
+						{{/each}}						
+					</p>
+					<p><a href="/femmes">Voir le catalogues</a></p>
+				</article>
+				<article class="categorie_illustration">
+					<div class="categorie_big_illustration" style="background:url(public/image/home/women_banner.jpg) center;background-size:cover"></div>
+					<div class="categorie_small_illustration">
+						<div style="background:url(public/image/home/women_bags.jpg) center;background-size:cover"></div>
+						<div style="background:url(public/image/home/women_shoes.png) center;background-size:cover"></div>
+					</div>					
+				</article>
+				
+				<article class="categorie_recomandation">
+						<ul>
+							<li>
+								<h3>Belle Dame</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/women/watch/m1.jpg) center;background-size:cover"></p>
+								<em>Montre Dame</em>
+								<p><span>En Or</span><span>Prix :400$</span></p>
+							</li>
+							<li>
+								<h3>Orca</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/women/shoes/sh.png) center;background-size:cover"></p>
+								<em>Sandale Dame</em>
+								<p><span>N°39</span><span>Prix :40$</span></p>
+							</li>
+							<li>
+								<h3>Orca</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/women/shoes/sho.jpg) center;background-size:cover"></p>
+								<em>Basket Dame</em>
+								<p><span>N°40</span><span>Prix :70$</span></p>
+							</li>
+							<li class="diactive">
+								<h3>Belle Dame</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/women/watch/m1.jpg) center;background-size:cover"></p>
+								<em>Montre Dame</em>
+								<p><span>En Or</span><span>Prix :400$</span></p>
+							</li>
+							
+						</ul>
+				</article>
+			
+			</section>
+			
+			
+			
+			<section class="men">
+				<article class="categorie_description">
+					<h1>Hommes<br/>Chics</h1>
+					<p>Un catalogue de produits pour hommes avec prix et points de vente </p>
+					<p class="tags">
+						{{#each men}}
+							<a href="/hommes/{{.}}" class="tag">{{.}}</a>
+						{{/each}}
+					</p>
+					<p><a href="/hommes">Voir le catalogues</a></p>
+				</article>
+				<article class="categorie_illustration">
+					<div class="categorie_small_illustration">
+						<div style="background:url(/public/image/home/men_banner.png) center;background-size:cover"></div>
+						<div style="background:url(/public/image/home/men_watch.jpg) center;background-size:cover"></div>
+					</div>
+					<div class="categorie_big_illustration" style="background:url(/public/image/home/men_shop.png) center;background-size:cover"></div>										
+				</article>
+				
+				<article class="categorie_recomandation">
+						<ul>
+							<li>
+								<h3>Jesus le Roc</h3>
+								<p class="recommantion_illustration" style="background:url(/public/image/men/shoes/sho1.png) center;background-size:cover"></p>
+								<em>Sandale Homme</em>
+								<p><span>N°39</span><span>Prix :15$</span></p>
+							</li>
+							<li>
+								<h3>Mango</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/men/watch/montre.png) center;background-size:cover"></p>
+								<em>Montre Homme</em>
+								<p><span>En Argent</span><span>Prix :20$</span></p>
+							</li>
+							<li>
+								<h3>Leontine</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/men/shoes/sho2.jpg) center;background-size:cover"></p>
+								<em>Basket Homme</em>
+								<p><span>N°39</span><span>Prix :20$</span></p>
+							</li>
+							<li class="diactive">
+								<h3>Jesus le Roc</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/men/shoes/sho1.png) center;background-size:cover"></p>
+								<em>Sandale Homme</em>
+								<p><span>N°39</span><span>Prix :15$</span></p>
+							</li>
+						</ul>
+				</article>
+				
+			</section>			
+			
+			<section class="enfants">
+				<article class="categorie_description">
+					<h1>Enfants<br/>Stylé</h1>
+					<p>
+						Trouver facilement les meilleurs articles de mode pour vos enfants filles et garcons
+						
+					</p>
+					<p class="tags">
+						{{#each girl}}
+							<a href="/filles/{{.}}" class="tag">{{.}}</a>
+						{{/each}}
+					</p>
+					<p><a href="/garcons">Catalogue pour Garcons</a> <a href="/filles">Catalogue pour Filles</a></p>
+					
+				</article>
+				<article class="categorie_illustration">
+					<div class="categorie_big_illustration" style="background:url(public/image/home/0.png) center;background-size:cover"></div>
+					<div class="categorie_small_illustration">
+						<div style="background:url(public/image/home/4.png) center;background-size:cover"></div>
+						<div style="background:url(public/image/home/f.png) center;background-size:cover"></div>
+					</div>					
+				</article>
+				
+				<article class="categorie_recomandation">
+						<ul>
+							<li>
+								<h3>Belle Dame</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/women/watch/m1.jpg) center;background-size:cover"></p>
+								<em>Montre Dame</em>
+								<p><span>En Or</span><span>Prix :400$</span></p>
+							</li>
+							<li>
+								<h3>Orca</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/women/shoes/sh.png) center;background-size:cover"></p>
+								<em>Sandale Dame</em>
+								<p><span>N°39</span><span>Prix :40$</span></p>
+							</li>
+							<li>
+								<h3>Orca</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/women/shoes/sho.jpg) center;background-size:cover"></p>
+								<em>Basket Dame</em>
+								<p><span>N°40</span><span>Prix :70$</span></p>
+							</li>
+							<li class="diactive">
+								<h3>Belle Dame</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/women/watch/m1.jpg) center;background-size:cover"></p>
+								<em>Montre Dame</em>
+								<p><span>En Or</span><span>Prix :400$</span></p>
+							</li>
+							
+						</ul>
+				</article>
+			
+			</section>
+			<section class="child">
+				<article class="categorie_description">
+					<h1>Jeux & <br/>Jouets</h1>
+					<p>Un catalogue de produits pour hommes,l'adresse de magasins de vente ainsi que leur prix de vente</p>
+					<p class="tags">
+						{{#each game}}
+							<a href="/jeux/{{.}}" class="tag">{{.}}</a>
+						{{/each}}
+					</p>
+					<p><a href="/jeux">Voir le catalogues</a></p>
+				</article>
+				<article class="categorie_illustration">
+					<div class="categorie_big_illustration" style="background:url(public/image/home/child_banner.png) center;background-size:cover"></div>
+					<div class="categorie_small_illustration">
+						<div style="background:url(public/image/home/g3.png) center;background-size:cover"></div>
+						<div style="background:url(public/image/home/gt.png) center;background-size:cover"></div>
+					</div>					
+				</article>
+				
+				<article class="categorie_recomandation">
+						<ul>
+							<li>
+								<h3>Jesus le Roc</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/child/vetement/2.png) center;background-size:cover"></p>
+								<em>Ensemble Garcon</em>
+								<p><span>7 Ans</span><span>Prix :100$</span></p>
+							</li>
+							<li>
+								<h3>Orca</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/child/shoes/bo.png) center;background-size:cover"></p>
+								<em>Botte fille</em>
+								<p><span>N°39</span><span>Prix :20$</span></p>
+							</li>
+							<li>
+								<h3>Orca</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/child/accessories/lu.png) center;background-size:cover"></p>
+								<em>Lunette Enfants</em>
+								<p><span>En Coton</span><span>Prix :20$</span></p>
+							</li>
+							<li class="diactive">
+								<h3>Jesus le Roc</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/child/vetement/2.png) center;background-size:cover"></p>
+								<em>Ensemble Garcon</em>
+								<p><span>7 Ans</span><span>Prix :100$</span></p>
+							</li>
+						</ul>
+				</article>
+				
+			</section>		
+			
+			<section class="mobilier">
+			
+				<article class="categorie_recomandation left">
+						<ul>
+							<li>
+								<h3>Habitat Decor</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/equipement/salon/h.png) center;background-size:cover"></p>
+								<em>Fauteuil Cuire</em>
+								<p><span>N°5</span><span>Prix :200$</span></p>
+							</li>
+							<li>
+								<h3>Infinix</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/equipement/salon/i.png) center;background-size:cover"></p>
+								<em>Salon Complet</em>
+								<p><span>N°0</span><span>Prix :500$</span></p>
+							</li>
+							<li>
+								<h3>Decoro</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/equipement/salon/l.png) center;background-size:cover"></p>
+								<em>Table de cuisine</em>
+								<p><span>N°0</span><span>Prix :1000$</span></p>
+							</li>
+							
+						</ul>
+				</article>
+				
+				<article class="categorie_illustration_wrapper">
+					<article class="categorie_illustration">
+							<div class="equipement moblier_description">
+								<h1>Meuble<br/>Classique</h1>
+								<p>Prix des equiments immobiliers et adresses de points de ventes</p>
+								<p><a href="/meuble">Voir Catalogue</a></p>
+							</div>							
+							<a class="equipement salon_bureau" href="/meuble/salon">
+								<span>SALON & SALLE A MANGER</span>
+							</a>
+							<div class="equipement moblier_description electro">
+								<h1>Electromenager<br/>Complet</h1>
+								<p>Prix des equiments immobiliers et adresses de points de ventes</p>
+								<p><a href="/electromenager">Voir Catalogue</a></p>
+							</div>
+							<a class="equipement cuisine" href="/electromenager/cuisine">
+								<span>CUISINNE</span>
+							</a>
+							<div class="equipement moblier_description">
+								<h1>High Tech &<br/>Electronique</h1>
+								<p>Prix des equiments immobiliers et adresses de points de ventes</p>
+								<p><a href="/high_tech">Voir Catalogue</a></p>
+							</div>
+							<a class="equipement electromenager" href="/high_tech/ecan_plat">
+								<span>ECRAN HD</span>
+							</a>
+					</article>
+				</article>
+				
+				<article class="categorie_recomandation">
+						<ul>
+							<li>
+								<h3>UAC</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/equipement/high_tech/pad.png) center;background-size:cover"></p>
+								<em>Ipad 6</em>
+								<p><span>32 G</span><span>Prix :300$</span></p>
+							</li>
+							<li>
+								<h3>UAC</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/equipement/salon/g.png) center;background-size:cover"></p>
+								<em>Deux Fauteuil</em>
+								<p><span>En Cuire</span><span>Prix :500$</span></p>
+							</li>
+							<li>
+								<h3>UAC</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/equipement/cuisine/frit.png) center;background-size:cover"></p>
+								<em>Friteuse</em>
+								<p><span>10 L</span><span>Prix :100$</span></p>
+							</li>
+							<li class="diactive">
+								<h3>UAC</h3>
+								<p class="recommantion_illustration" style="background:url(public/image/equipement/high_tech/pad.png) center;background-size:cover"></p>
+								<em>Ipad 6</em>
+								<p><span>32 G</span><span>Prix :300$</span></p>
+							</li>
+						</ul>
+				</article>
+				
+			</section>
+			
+		</div>
+</header>

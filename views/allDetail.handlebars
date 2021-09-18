@@ -1,0 +1,71 @@
+
+{{#section "head"}}
+	<link rel="stylesheet" type="text/css" href="/public/css/admin/editDetail.css"/>	
+{{/section}}
+	<header>
+		{{> menu}}
+	</header>		
+		<div id="form_container">			
+			<form class="article_classe" method="post" action="/admin/editAttributeName/{{detail._id}}">
+				<label for="classe">
+					Classe : <span style="font-weight:bold">{{detail.classe}}</span>
+					
+				</label>
+				<label for="classe">
+					Categorie : <span style="font-weight:bold">{{detail.category}}</span>
+					
+				</label>
+				
+				<label for="classe">
+					Filtre :					
+					<select id="caracteristique">
+						<option></option>
+						{{#each allDetail}}
+							<option>{{name}}</option>							
+						{{/each}}						
+					</select>
+					
+				</label>
+			
+			
+			
+				<h2>Modifiez la caracteristique</h2>				
+				<label for="name">Nom:<input type="text" name="name" value="{{detail.name}}" placeholder="Caracteristique"/></label>
+				<input type="submit" value="Editer" class="submit"/>				
+				<a href="/admin/removeSpecificAttribute/{{detail._id}}" class="submit">Delete</a>
+				{{#if nameExisted}}
+					<span style="padding-top:0.5em;color:rgba(255,0,0,0.7)">Cette caracteristique existe deja</span>
+				{{/if}}
+				
+			</form>
+			<div id="table">			
+				<h2>Toutes les valeurs</h2>
+				<ul>				
+					{{#each detail.val}}
+						<li>							
+							<input type="text" value="{{.}}" />
+							<em class="edit">Modifier</em>
+							<em class="delete">Supprimer</em>
+						</li>
+					{{/each}}
+				<!--
+					<li>
+						<span>1</span>
+						<input type="text" value=""placeholder="elem"/>
+						<em class="edit">Modifier</em>
+						<em class="delete">Supprimer</em>
+					</li>
+					<li>
+						<span>2</span>
+						<input type="text" value=""placeholder="elem"/>
+						<em class="edit">Modifier</em>
+						<em class="delete">Supprimer</em>
+					</li>
+					-->
+				</ul>
+			</div>
+		</div>
+	{{#section "jquery"}}
+			<script type="text/javascript" src="/public/js/editDetail.js"></script>			
+	{{/section}}
+</html>

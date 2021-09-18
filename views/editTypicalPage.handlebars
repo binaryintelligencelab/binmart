@@ -1,0 +1,62 @@
+
+{{#section "head"}}
+	<link rel="stylesheet" type="text/css" href="/public/css/admin/editTypicalPage.css"/>	
+{{/section}}
+	<header>
+		{{> menu}}
+	</header>		
+		<div id="form_container">			
+			<form class="article_classe" method="post" action="/admin/editTypicalName/{{detail._id}}">
+				<label for="classe">
+					Classe : <input type="text" name="classe" value="{{detail.classe}}"/>					
+				</label>
+				<label for="category">
+					Categorie : <input type="text" name="category" value="{{detail.category}}"/>					
+				</label>
+				<!--
+				<label for="classe">
+					Filtre :					
+					<select id="caracteristique">
+						<option></option>
+						{{#each allDetail}}
+							<option>{{name}}</option>							
+						{{/each}}						
+					</select>
+					
+				</label>
+			-->
+			
+			
+				<h2>Modifiez la caracteristique</h2>				
+				<label for="name">Nom:<input type="text" name="name" value="{{detail.name}}" placeholder="Caracteristique"/></label>
+				<input type="submit" value="Editer" class="submit"/>				
+				<a href="/admin/removeTypicalName/{{detail._id}}" class="submit">Delete</a>
+				{{#if nameExisted}}
+					<span id="error" style="padding-top:0.5em;color:rgba(255,0,0,0.7)">Cette caracteristique existe deja</span>
+				{{/if}}
+				
+			</form>
+			<div id="table">
+				{{#if detail.val}}
+					<h2>Toutes les valeurs</h2>
+					<ul>				
+						{{#each detail.val}}
+							<li id="{{../detail._id}}">
+								<span class="lastTypicalValue" style="display:none">{{.}}</span>
+								<input type="text" value="{{.}}" class="typicalValue"/>								
+								<em class="edit">Modifier</em>
+								<em class="delete"><a href="/admin/removeTypicalValue/{{.}}/{{../detail._id}}">Supprimer</a></em>
+							</li>
+						{{/each}}
+							
+					</ul>
+						{{else}}
+							<p>Auncune valeur pour cette caracteristique</p>
+				{{/if}}
+				<a href="/admin/addNewValues/{{detail._id}}">Ajouter une valeur</a>
+			</div>
+		</div>
+	{{#section "jquery"}}
+			<script type="text/javascript" src="/public/js/editTypicalPage.js"></script>			
+	{{/section}}
+</html>

@@ -1,0 +1,84 @@
+
+<div id="nav_container">
+	<div>
+		<!--THE MENU BOX-->
+		<p class="drag_menu" id="drag_menu">
+			<span></span>
+			<span></span>
+			<span></span>
+		</p>
+		<span><img src="/public/image/logo.png" alt="myclass-logo"/></span>
+		<nav>
+			<!--
+			<ul class="menu_box" id="menu_box">
+				<li><a href="/">Accueil</a></li>
+				<li><a href="/femmes" class="active">Femmes</a></li>
+				<li><a href="/hommes">Hommes</a></li>
+				<li><a href="/filles">Filles</a></li>
+				<li><a href="/garcons">Garcons</a></li>
+				<li><a href="/jeux">Jeux</a></li>
+				<li><a href="/meuble">Meuble</a></li>				
+				<li><a href="/electromenager">Electromenager</a></li>				
+				<li><a href="/high_tech">High Tech</a></li>				
+				<li><a href="/contact">Contact</a></li>
+			</ul>
+			-->
+			<ul>
+				<!--<li><a href=""><img src="/public/image/button/lg_search.png"/></a></li>-->
+				{{#if member}}
+						<input type="hidden" value="{{member.init}}" id="letter"/>
+						<li class="user_profile">
+							<ul class="notification">
+								<li class="panier"><a href="/panier"></a></li>
+								<li></li>								
+							</ul>
+							<a href="/profil">
+								<p class="user_thumbnail">
+									<span style="text-transform:uppercase"></span>
+									<span><em>{{member.name}}</em><i>{{member.surname}}</i></span>								
+								</p>
+							</a>
+						</li>
+						<li><a href="/logout">Deconnexion</a></li>						
+					{{else}}
+					{{#if admin}}
+						<input type="hidden" value="{{admin.init}}" id="letter"/>
+						<li class="user_profile">
+							<ul class="notification">
+								<li class="panier"><a href="/panier"></a></li>
+								<li></li>								
+							</ul>
+							<a href="/admin">
+								<p class="user_thumbnail">
+									<span style="text-transform:uppercase"></span>
+									<span ><em>{{admin.adminname}}</em><i>{{admin.surname}}</i></span>								
+								</p>
+							</a>							
+							<a href="/logout">Deconnexion</a>
+						</li>
+						{{else}}
+						{{#if superAdmin}}
+							<input type="hidden" value="{{admin.init}}" id="letter"/>
+							<li class="user_profile">
+								<ul class="notification">
+									<li class="panier"><a href="/panier"></a></li>
+									<li></li>								
+								</ul>
+								<a href="/admin">
+									<p class="user_thumbnail">
+										<span style="text-transform:uppercase"></span>
+										<span ><em>{{admin.adminname}}</em><i>{{admin.surname}}</i></span>								
+									</p>
+								</a>							
+								<a href="/logout">Deconnexion</a>
+							</li>
+							{{else}}
+							<li><a href="/login" id="login">Connexion</a></li>
+						{{/if}}
+						
+					{{/if}}
+				{{/if}}			
+			</ul>
+		</nav>			
+	</div>
+</div>

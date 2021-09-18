@@ -1,0 +1,298 @@
+{{#section "head"}}
+	<link rel="stylesheet" type="text/css" href="/public/css/admin/index.css"/>	
+{{/section}}
+<header>
+	{{> menu}}
+</header>
+<section id="container">
+			<h1>Maison {{bouti.name}}<!--<strong>20 Articles</strong><strong class="public">100 Publics</strong><strong class="privet">100 Privés</strong>--></h1>
+			<section id="login_container">
+				<div class="login_wrapper">
+					<div class="login_form">
+							<h2>Creer un nouveau article</h2>
+						
+							<form method="post" action="/admin/add_article" enctype="multipart/form-data">
+								<label for="classe">
+									<p>
+									{{#if body.classe}}
+										<em id="bodyClasse" style="display:none">{{body.classe}}</em>
+									{{/if}}
+										<span>Classe</span>
+										<select name="classe" id="classe">											
+											<option value=""></option>											
+										</select>
+									</p>
+									{{#if noClass}}
+										<i class="required">Ce champ est obligatoire</i>
+									{{/if}}
+								
+								</label>
+								
+								<label for="category">
+									<p>
+									{{#if body.category}}
+										<em id="bodyCategorie" style="display:none">{{body.category}}</em>
+									{{/if}}
+										<span>Categorie</span>
+									<select name="category" id="category" class="articleDetail" disabled>
+										
+									</select>
+																			
+									</p>
+									{{#if noCategorie}}
+										<i class="required">Ce champ est obligatoire</i>
+									{{/if}}
+									
+									{{#if badcategorie}}
+										<i class="required">{{badcategorie}}</i>
+									{{/if}}
+								</label>
+								<label for="type">
+									<p>
+									{{#if body.type}}
+										<em id="bodyType" style="display:none">{{body.type}}</em>
+									{{/if}}
+										<span>Type</span>
+									<select name="type" id="type" class="articleDetail" disabled>
+									
+									</select>
+									</p>
+									{{#if noType}}
+										<i class="required">Ce champ est obligatoire</i>
+									{{/if}}
+									{{#if badtype}}
+										<i class="required">{{badtype}}</i>
+									{{/if}}
+								</label>
+								<label for="name">
+									<p>
+										<span>Nom</span>
+										<input type="text" placeholder="Identifier votre article par un nom" value="{{body.name}}" name="name" class="articleDetail" autocomplete="off"/>									
+									</p>
+									{{#if noName}}
+										<i class="required">Ce champ est obligatoire</i>
+									{{/if}}
+									
+									{{#if badname}}
+										<i class="required">{{badname}}</i>
+									{{/if}}
+								</label>
+								<label for="marque">
+									<p>
+										<span>Marque</span>
+										<input type="text" placeholder="Marque de l'article exemple : dolce&cabana" value="{{body.marque}}" name="marque" class="articleDetail" autocomplete="off"/>									
+									</p>
+									{{#if noMarque}}
+										<i class="required">Ce champ est obligatoire</i>
+									{{/if}}
+									{{#if badmarque}}
+										<i class="required">{{badmarque}}</i>
+									{{/if}}
+									
+								</label>
+								<label for="numero">
+									<p>
+										<span>Taille</span>
+										<input type="text" placeholder="liste de numero disponible exemple: 30,31,34" value="{{body.numero}}" name="numero" class="articleDetail" autocomplete="off"/>									
+									</p>
+									{{#if noNumero}}
+										<i class="required">Ce champ est obligatoire</i>
+									{{/if}}
+									{{#if badnumero}}
+										<i class="required">{{badnumero}}</i>
+									{{/if}}
+								</label>
+								<label for="description">
+									<p>
+										<span>Description</span>
+										<textarea type="text" placeholder="Decrire brievement votre article"  value="{{body.description}}" style="width:70%;height:50px" name="description" class="articleDetail">
+											{{body.description}}
+										</textarea>
+									</p>
+									{{#if noDescription}}
+										<i class="required">Ce champ est obligatoire</i>
+									{{/if}}
+									
+									{{#if baddescription}}
+										<i class="required">{{baddescription}}</i>
+									{{/if}}
+								</label>
+								<fieldset>
+									<legend>Image de l'article</legend>
+									<label for="file">
+										<p>
+											<span>Mes images</span>
+											<input type="file" placeholder="Premiere image" value="" name="file" multiple/>										
+										</p>
+										{{#if badfiles}}
+											<i class="required">{{badfiles}}</i>
+										{{/if}}
+										{{#if noFiles}}
+											<i class="required">Ce champ est obligatoire</i>
+										{{/if}}
+										{{#if noFiles2}}
+											<i class="required">Il est reccomandé de joindre deux images</i>
+										{{/if}}
+									</label>									
+									<label for="color">
+										<p>
+											<span>Coleur</span>
+											<input type="color" placeholder="liste de couleur disponible exemple: blue,rouge" value="" name="color"/>										
+										</p>
+										{{#if noColor}}
+											<i class="required">Ce champ est obligatoire</i>
+										{{/if}}
+										{{#if badcolor}}
+											<i class="required">{{badcolor}}</i>
+										{{/if}}
+									</label>
+								</fieldset>
+								<label for="detail_price">
+									<p>
+										<span>Prix unitaire </span>
+										<input type="text" placeholder="prix en detail exemple: 200" value="{{body.detail_price}}" name="detail_price" autocomplete="off"/>									
+									$</p>
+									{{#if noDetailPrice}}
+										<i class="required">Ce champ est obligatoire</i>
+									{{/if}}
+									{{#if baddetail_price}}
+										<i class="required">{{baddetail_price}}</i>
+									{{/if}}
+									{{#if no_detail_price_number}}
+										<i class="required">Ce champ doit etre un chiffre</i>
+									{{/if}}
+								</label>
+								<label for="gros_price">
+									<p>
+										<span>Prix de gros</span>
+										<input type="text" placeholder="prix en gros exemple: 200" value="{{body.gros_price}}" name="gros_price" autocomplete="off"/>									
+									$</p>
+									{{#if noGrosPrice}}
+										<i class="required">Ce champ est obligatoire</i>
+									{{/if}}
+									{{#if badgros_price}}
+										<i class="required">{{badgros_price}}</i>
+									{{/if}}
+									{{#if no_gros_price_number}}
+										<i class="required"> Ce champ doit etre un chiffre</i>
+									{{/if}}
+								</label>
+								<label for="gros_number">
+									<p>
+										<span>Quantité</span>
+										<input type="text" placeholder="Nombre d'article en gros" value="{{body.gros_number}}" name="gros_number" autocomplete="off"/>									
+									</p>
+									{{#if noGrosNumber}}
+										<i class="required">Ce champ est obligatoire</i>
+									{{/if}}
+									{{#if badgros_number}}
+										<i class="required">{{badgros_number}}</i>
+									{{/if}}
+									{{#if no_gros_number}}
+										<i class="required">Ce champ doit etre un chiffre</i>
+									{{/if}}
+								</label>
+								<p class="confidential">
+									En ajoutant un article à notre base de donnés vous acceptez de ce fait les
+									<a href="" class="term_of_use"> conditions generales</a> d'utilisation
+								</p>
+								<p class="login_register">
+									<input type="submit" value="Ajouter" name="register"class="register"/>									
+								</p>
+							</form>
+					</div>
+				</div>
+				<div class="login_wrapper">
+					<div class="login_form record">
+						<h2>Mes informations</h2>
+						<form method="post" action="/admin/editInfo">
+							<label for="adminname">
+								<p>
+									<span>Nom </span>
+										<input type="text" placeholder="" value="{{bouti.adminname}}" name="adminname"/>									
+								</p>									
+							</label>
+							<label for="surname">
+								<p>
+									<span>Prénom </span>
+										<input type="text" placeholder="" value="{{bouti.surname}}" name="surname"/>									
+								</p>									
+							</label>
+							<label for="name">
+								<p>
+									<span>Nom de l'etablissement</span>
+										<input type="text" placeholder="" value="{{bouti.name}}" name="name"/>									
+								</p>									
+							</label>
+							
+							<label for="username">
+								<p>
+									<span>Identifiant</span>
+										<input type="text" placeholder="" value="{{bouti.username}}" name="username"/>									
+								</p>									
+							</label>
+							<label for="rccm">
+								<p>
+									<span>RCCM</span>
+										<input type="text" placeholder="" value="{{bouti.rccm}}" name="rccm"/>									
+								</p>									
+							</label>
+							<label for="telephone">
+								<p>
+									<span>Telephone</span>
+										<input type="text" placeholder="" value="{{bouti.telephone}}" name="telephone"/>									
+								</p>									
+							</label>							
+							<label for="province">
+								<p>
+									<span>Province</span>
+										<input type="text" placeholder="" value="{{bouti.province}}" name="province"/>									
+								</p>									
+							</label>
+							<label for="town">
+								<p>
+									<span>Ville</span>
+										<input type="text" placeholder="" value="{{bouti.town}}" name="town"/>									
+								</p>									
+							</label>
+							<label for="commune">
+								<p>
+									<span>Commune</span>
+										<input type="text" placeholder="" value="{{bouti.commune}}" name="commune"/>									
+								</p>									
+							</label>
+							<label for="quarter">
+								<p>
+									<span>Quartier</span>
+										<input type="text" placeholder="" value="{{bouti.quarter}}" name="quarter"/>									
+								</p>									
+							</label>
+							<label for="avenue">
+								<p>
+									<span>Avenue</span>
+										<input type="text" placeholder="" value="{{bouti.avenue}}" name="avenue"/>									
+								</p>									
+							</label>
+							<label for="numero">
+								<p>
+									<span>Numero</span>
+										<input type="text" placeholder="" value="{{bouti.numero}}" name="numero"/>									
+								</p>									
+							</label>
+							
+							<p class="confidential" style="display:none">
+									
+									<a href="" class="term_of_use"> conditions generales</a> d'utilisation
+								</p>
+								<p class="login_register">
+									<input type="submit" value="Modifier" name="register"class="register"/>									
+							</p>
+						</form>
+					</div>					
+				</div>
+								
+			</section>			
+		</section>
+		{{#section "jquery"}}
+			<script type="text/javascript" src="/public/js/classe.js"></script>			
+		{{/section}}

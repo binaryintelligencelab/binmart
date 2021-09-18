@@ -1,0 +1,91 @@
+
+		{{#section "head"}}
+			<title>Achats</title>
+			<link rel="stylesheet" href="/public/css/profil/achat.css"/>
+			<meta name="viewport" content="width=device-width" initial-scale="1">
+		{{/section}}
+	<header>
+		{{> menu}}
+	</header>
+		
+		
+		<div id="profil_container">			
+			<section class="container">
+				<div class="header">
+					<p>						
+						<span></span>
+						<em style="text-transform:uppercase">{{user.name}} {{user.surname}}</em>
+					</p>
+				</div>
+				<section id="login_container">
+					{{> aside}}
+					
+					<div class="login_wrapper">
+						<ul class="inside_menu">
+							<li><a href="/profil/identite">Mon Identite</a></li>
+							<li class="active"><a href="/profil/achat">Mes Achats</a></li>
+						</ul>
+						<ul class="checker">
+							<!--<li class="active"><em>En attente de payement</em><em></em></li>-->
+							<li class="active"><a href="/profil/achat"> <em></em><em>En Chemin</em> </a></li>
+							<li><a href="/profil/achat/deliver"> <em></em><em>Livré</em> </a></li>
+							<!--<li><em>Rémboursé</em><em></em></li>-->
+						</ul>
+						{{#if achat}}
+							<table>
+								
+								 <tr>
+									<th>N°</th>
+									<th>Nom</th>
+									<th style="width:60%" class="description">Description</th>
+									<th>Taille</th>
+									<th>Quantité</th>
+									<th>Prix</th>
+									<th>Couleur</th>
+									<th>Action</th>
+								 </tr>
+								 {{#each achat}}
+									<tr class="achat_list">
+										<td><a href="/{{classe}}/{{categorie}}/{{type}}/{{articleId}}/{{colorId}}" title="voir l'article" style="border:1px solid rgba(0,0,0,0.2);color:black;padding:0.2em 0.5em">{{@index}}</a></td>
+										<td>{{title}}</td>
+										<td style="width:60%" class="description">{{description}}</td>
+										<td>{{size}}</td>
+										<td class="quantite">{{quantite}}</td>
+										<td class="price" >{{price}} </td>
+										<td style="background:{{color}}"></td>
+										<td class="confirm"><a href="/user/confirm/{{_id}}">Recus</a></td>
+									 </tr>
+								 {{/each}}
+								 
+								 <tfoot>
+									<tr>
+										<th colspan="4">
+											Total
+										</th>
+										<th class="sum">
+											
+										</th>
+										<th class="allprice">
+											
+										</th>
+										<th colspan="2">
+										</th>
+										<!--
+										<th>
+											<a href="">Payer Tout</a>
+										</th>
+										-->
+									</tr>
+								 </tfoot>
+							</table>
+								{{else}}
+									<p class="no_commande">Aucune commande n'est en cours</p>
+							{{/if}}
+					</div>
+				</section>
+			</section>
+		</div>
+		{{#section "jquery"}}
+			<script type="text/javascript" src="/public/js/achat.js"></script>			
+		{{/section}}
+	

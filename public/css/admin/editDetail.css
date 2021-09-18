@@ -1,0 +1,114 @@
+#form_container{
+	margin-top:5em;
+}
+#form_container form,#form_container ul{
+	width:45%;
+	margin:auto;	
+	margin-bottom:0.5em;
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:space-between;
+	align-items:flex-start;
+}
+#form_container form label span.required{
+	display:flex;
+	margin-top:0.5em;
+	color:red;
+	font-size:0.9em;
+}
+
+#form_container form.article_classe label select{
+	width:150px;
+}
+
+
+#form_container form h2{
+	border-bottom:1px solid rgba(0,0,0,0.1);
+	width:100%;
+	padding-bottom:0.4em;
+	color:rgba(0,0,0,0.9);
+}
+#form_container form input{
+	margin:0em 0.5em;
+}
+
+#form_container form input,#form_container form select{
+	//display:inline-block;
+	//width:70%;
+	//margin:auto;
+	border:none;
+	border-bottom:1px solid rgba(0,0,0,0.2);
+	border-left:1px solid rgba(0,0,0,0.2);
+	border:1px solid rgba(0,0,0,0.2);
+	font-size:14px;
+	padding-bottom:0.2em;
+	padding-left:0.5em;
+	padding-top:0.2em;
+	outline:none;	
+	color:rgba(0,0,0,0.6);
+	background:transparent;
+	margin-bottom:0em;
+	margin-top:0em;
+	/border-radius:15px;
+}
+#form_container form .submit{
+	background:rgba(0,128,192,1);
+	color:white;
+	border:none;
+	padding:0.2em 0.5em;
+	font-size:15px;
+}
+
+#table{
+	width:45%;
+	margin:auto;
+}
+#table h2{
+	border-bottom:1px solid rgba(0,0,0,0.1);
+	width:100%;
+	padding-bottom:0.4em;
+	color:rgba(0,0,0,0.9);
+}
+#table ul{
+	width:100%;
+	padding:0px; 
+	margin:0px;
+}
+#table li{
+	display:flex;
+	width:100%;
+	padding:1em 0px;
+	border-bottom:1px solid rgba(0,0,0,0.2);
+	align-items:center;
+}
+#table li em,#table li input{
+	margin-left:1em;
+}
+#table li em{
+	font-style:normal;
+	font-size:14px;
+	padding:0.2em 0.5em;
+	color:white;
+}
+#table li em:hover{
+	cursor:pointer;
+}
+#table li em.edit{
+	background:rgba(0,128,192,1);
+}
+#table li em.delete{
+	background:rgba(255,0,0,1);
+}
+#table input{
+	border:none;
+	border-bottom:1px solid rgba(0,0,0,0.2);
+	border-left:1px solid rgba(0,0,0,0.2);
+	border:1px solid rgba(0,0,0,0.2);
+	font-size:14px;
+	padding-bottom:0.2em;
+	padding-left:0.5em;
+	padding-top:0.2em;
+	outline:none;	
+	color:rgba(0,0,0,0.6);
+	background:transparent;
+}

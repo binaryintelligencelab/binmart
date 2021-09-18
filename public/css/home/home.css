@@ -1,0 +1,960 @@
+body
+{
+	padding:0px;
+	margin:0px auto;
+	font-family:Helvetica;	
+	background:rgba(226,226,226,0.3);
+	max-width:1370px;
+}
+body a{
+	text-decoration:none;
+}
+/**********All RESET***********/
+body ul{
+	padding:0px;
+	margin:0px;
+	list-style:none;
+}
+/*************Header*************/
+
+body header{
+	padding-bottom:0px;
+	border-bottom:1px solid rgba(128,128,128,0.1);
+}
+/**************Navigation*********/
+
+
+/*************Banner*************/
+#banner{
+	margin-top:1em;
+	padding:0px;
+	/background:url("../image/home/architecture.jpg");
+}
+#banner div{
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	height:300px;
+	padding:0.5em 0px;
+	margin:0px auto;
+	width:95%;
+	/background:rgba(226,226,226,0.9);
+}
+
+#banner .banner_description{
+	width:35%;
+}
+#banner .banner_description h2,#banner .banner_description h1{
+	margin:0px;
+}
+#banner .banner_description h2{
+	font-size:1.9em;
+}
+#banner .banner_description h1{
+	font-size:4em;
+	color:rgba(255,0,128,1);
+	text-shadow:1px 1px 1px rgba(0,0,0,0.5);
+}
+#banner .banner_description p{
+	font-size:0.9em;
+	line-height:1.4em;
+}
+#banner .solde{
+	width:20%;
+	height:100%;
+	padding:0px;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+}
+#banner .solde h1{
+	display:flex;
+	flex-direction:column;
+	text-align:center;
+	margin:0.5em 0px;
+}
+#banner .solde h1 span:first-child{
+	font-size:1.5em;
+}
+#banner .solde h1 span:last-child{
+	font-size:0.8em;
+}
+#banner .solde h1:first-child{
+	color:rgba(255,128,64,1);
+}
+#banner .solde h1:last-child{
+	color:rgba(255,0,128,1);
+}
+
+
+
+/********************All_Categories*************/
+#categorie{
+	background:white;
+	padding:0px;
+}
+#categorie section{
+	width:95%;
+	margin:3em auto;
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:space-between;
+	align-items:center;
+	margin-bottom:0px;
+}
+#categorie .categorie_description{
+	width:30%;
+	position:relative;
+}
+
+#categorie .categorie_description:before,#categorie .moblier_description:before{
+	content:"";
+	display:block;
+	height:30px;
+	width:30px;
+	position:absolute;
+	top:10px;
+	right:50px;
+	border-radius:30px;
+	background:rgba(255,128,0,1);
+}
+
+/******women section part************************/
+#categorie section.women{
+	margin-top:0px;
+}
+
+#categorie .categorie_description h1{
+	font-size:1.7em;
+}
+#categorie .categorie_description p{
+	color:rgba(100,100,100,1);
+	font-size:14px;
+	width:90%;
+}
+
+#categorie .categorie_description p a.tag{
+	border:1px solid rgba(0,0,0,0.1);
+	padding:0.2em 0.8em;
+	border-radius:0.8em;
+	font-size:0.7em;
+	color:white;
+	text-shadow:1px -1px 1px rgba(0,0,0,0.3);
+	display:inline-block;
+	margin:0px 0.4em;
+	margin-bottom:0.5em;
+	background:rgba(0,128,192,0.8);
+}
+#categorie .categorie_description p.tags a:nth-child(even){
+	display:none;
+}
+#categorie .categorie_description p a:first-letter{
+	text-transform:uppercase;
+}
+#categorie .categorie_description p:last-child{
+	text-align:right;
+	border-bottom:1px solid rgba(255,0,255,1);
+	padding-bottom:1em;
+}
+#categorie .categorie_description p:last-child a{
+	color:rgba(255,0,255,1);
+}
+
+#categorie .categorie_description p:last-child a{
+	color:rgba(255,0,255,1);
+
+}
+#categorie section.enfants .categorie_description p:last-child{
+	display:flex;
+	justify-content:space-between;
+}
+/*
+#categorie section.enfants .categorie_description p:last-child a{
+	color:rgba(255,0,255,1);
+	/border:1px solid green;
+
+}*/
+
+#categorie .categorie_illustration{
+	width:60%;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	flex-wrap:wrap;
+}
+
+#categorie .categorie_big_illustration{
+	width:59.8%;
+	height:300px;
+}
+
+#categorie .categorie_small_illustration{
+	width:40%;
+	height:300px;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+}
+#categorie .categorie_small_illustration div{
+	height:149px;
+}
+
+
+#categorie section.women .categorie_description:before{
+	content:"";
+	background:url("/public/image/home/women_thumbnail.jpg") center;
+}
+
+#categorie section.men .categorie_description:before{
+	content:"";
+	background:url("/public/image/home/men_thumbnail.png") center;
+	background-size:cover;
+}
+#categorie section.flat .categorie_description:before{
+	content:"H";
+	font-size:14px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	font-weight:bold;
+	color:white;
+	letter-spacing:1px;
+}
+
+#categorie section.enfants .categorie_description:before{
+	content:"";
+	background:url("/public/image/home/child_thumbnail.jpg") center;
+	background-size:cover;
+	position:absolute;
+}
+
+#categorie section.child .categorie_description:before{
+	content:"";
+	background:url("/public/image/home/game.png") center;
+	background-size:cover;
+	position:absolute;
+}
+
+
+#categorie .moblier_description:before{
+	content:"";
+	background:url("/public/image/home/chair_thumbnail.png") center;
+	background-size:cover;
+	right:20px;
+}
+
+#categorie .electro:before{
+	content:"";
+	background:url("/public/image/home/frit.png") center;
+	background-size:cover;
+	right:20px;
+}
+
+
+#categorie .categorie_recomandation{
+	box-shadow:-1px 0px 0px rgba(0,0,0,0.1);
+	width:85px;
+	height:350px;
+	margin-left:0.2%;
+}
+#categorie .categorie_recomandation ul{
+	height:100%;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+}
+
+#categorie .categorie_recomandation li{
+	margin:0em auto;
+	padding:0.4em 5%;
+	width:90%;
+	border-bottom:1px solid rgba(0,0,0,0.1);
+	text-align:center;
+}
+#categorie .categorie_recomandation li.diactive{
+	display:none;
+}
+
+
+#categorie .categorie_recomandation li:last-child{
+	border-bottom:none;
+}
+#categorie .categorie_recomandation h3{
+	font-size:0.7em;
+	margin:0px;
+	text-align:center;
+	color:rgba(255,128,0,1);
+}
+#categorie .categorie_recomandation p.recommantion_illustration{
+	border-left:none;
+	border-right:none;
+	height:40px;
+	margin:0.3em auto;
+}
+
+
+#categorie .categorie_recomandation em{
+	font-size:0.7em;
+	font-style:normal;
+}
+#categorie .categorie_recomandation p{
+	display:flex;
+	justify-content:space-between;
+	width:100%;
+	align-items:center;
+	padding:0px;
+	margin:0px auto;
+}
+#categorie .categorie_recomandation li p:last-child{
+	margin-top:0.5em;
+}
+#categorie .categorie_recomandation span{
+	font-size:0.6em;
+}
+#categorie .categorie_recomandation li p:last-child span{
+	color:rgba(64,128,128,1);
+}
+
+
+
+
+
+#categorie section.pub{
+	margin-top:0px;
+}
+#categorie section.pub img{
+	width:80%;
+	margin:0px auto;
+}
+
+
+
+
+
+
+
+#categorie section.flat .categorie_recomandation{
+	box-shadow:none;
+	width:auto;
+	height:auto;
+	margin-right:auto;
+	
+}
+#categorie section.flat .categorie_recomandation{
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+	text-align:left;
+}
+
+#categorie section.flat .categorie_recomandation li{
+	width:30%;
+	margin:0px;
+	padding:0px;
+	border:none;
+	margin-right:0.5em;
+}
+
+#categorie section.flat .categorie_recomandation h3{
+	font-size:11px;
+	margin-bottom:0px;
+	margin-top:0.5em;
+	text-align:left;
+}
+
+
+#categorie section.flat .categorie_illustration{
+	width:69.7%;
+	display:flex;
+	align-items:flex-start;
+}
+
+#categorie .flat article.categorie_illustration >div,#categorie .flat article.categorie_illustration >a{
+	width:31%;
+	position:relative;
+	z-index:0;
+	display:block;
+}
+
+#categorie .flat article.categorie_illustration >div:before{
+	content:"";
+	display:block;
+	width:50px;
+	height:50px;
+	background:rgba(255,128,0,1);
+	position:absolute;
+	top:-8px;
+	right:-8px;
+	z-index:-1;
+}
+
+
+#categorie .flat article.categorie_illustration .flat_illustration{
+	height:160px;
+}
+#categorie .flat article.categorie_illustration .flat_description p{
+	color:rgba(0,0,0,0.7);
+	font-size:0.8em;
+	padding:0px 0.5em;
+	margin:0px;
+}
+#categorie .flat article.categorie_illustration .flat_description p:first-child{
+	text-align:right;
+	margin:0.5em 0px;
+}
+
+
+
+
+.star {
+	cursor: pointer;height: 25px;width: 25px;
+	margin: 2px;display:inline-block;background:rgba(255,128,0,1);;
+	clip-path: polygon(
+		50% 0%,
+		63% 38%,
+		100% 38%,
+		69% 59%,
+		82% 100%,
+		50% 75%,
+		18% 100%,
+		31% 59%,
+		0% 38%,
+		37% 38%
+		);
+	}
+#categorie .categorie_recomandation{
+	box-shadow:-1px 0px 0px rgba(0,0,0,0.1);
+}
+
+#categorie .mobilier .categorie_illustration_wrapper{
+	width:80%;
+}
+#categorie .mobilier .categorie_illustration{
+	width:100%;
+	justify-content:space-around;
+}
+
+
+#categorie .mobilier div.equipement,#categorie .mobilier a.equipement{
+	width:30%;
+	height:150px;
+	margin:1em 0px;
+	position:relative;
+	z-index:1;
+	display:block;
+}
+
+#categorie .mobilier .categorie_recomandation:first-child{
+	box-shadow:1px 0px 0px rgba(128,128,128,0);
+}
+#categorie .moblier_description{
+	border-bottom:1px solid rgba(255,0,255,1);
+	padding:0.2em;
+	padding-bottom:0px;
+	position:relative;
+	z-index:100;
+}
+#categorie .moblier_description h1{
+	font-size:1.7em;
+	margin:0px;
+}
+#categorie .moblier_description p{
+	color:rgba(100,100,100,1);
+	font-size:14px;
+	width:90%;
+}
+#categorie .moblier_description p:last-child{
+	text-align:right;
+}
+#categorie .moblier_description p a{
+	color:rgba(255,0,255,1);
+}
+
+
+#categorie .mobilier .categorie_illustration span{
+	color:white;
+	text-shadow:1px -1px 1px rgba(0,0,0,0.5);
+	font-weight:bold;
+	font-size:0.7em;
+	font-size:11px;
+	background:rgba(0,128,192,1);
+	background:rgba(0,128,64,1);
+	padding:0.5em;
+	padding-right:1.5em;
+	border-radius:0px 3em 3em 0px;
+	position:relative;
+	left:-5px;
+}
+
+
+#categorie .salon_bureau{
+	background:url("/public/image/home/salon.png") center;
+	background-size:cover;
+}
+#categorie .chambre{
+	background:rgba(0,128,192,1);
+	background:url("/public/image/home/chambre.png") center;
+	background-size:cover;
+}
+#categorie .cuisine{
+	background:rgba(0,128,192,1);
+	background:url("/public/image/home/cuisine.png") center;
+	background-size:cover;
+}
+#categorie .high_tech{
+	background:rgba(0,128,192,1);
+	background:url("/public/image/equipement/high_tech/hi.jpeg") center;
+	background-size:cover;
+}
+#categorie .electromenager{
+	background:rgba(0,128,192,1);
+	background:url("/public/image/home/electro.jpg") center;
+	background-size:cover;
+}
+
+
+/*
+footer h1{
+	text-align:center;
+	font-size:4em;
+}
+footer{
+	margin-bottom:0px;
+	padding:0.5em 0px;
+	border-top:1px solid rgba(0,0,0,0.1);
+}
+
+*/
+
+
+/********MEDIA QUERIES IN ACTION*******************/
+
+@media screen and (max-width:1000px){
+/*****BANNER MEDIA*******************/
+	#banner .solde{
+		width:25%;
+	}
+/*****CATEGORIE MEDIA****************/
+	#categorie .categorie_description{
+		width:31%;
+	}
+	#categorie .categorie_illustration{
+		width:57%;
+	}
+	#categorie .categorie_recomandation{
+		width:85px;
+		margin-left:0.1%;
+	}
+	#categorie .categorie_description p{
+		color:rgba(100,100,100,1);
+		font-size:13px;
+	}
+	#categorie .categorie_description h1{
+		font-size:1.4em;
+	}
+	#categorie .categorie_description p{
+		width:95%;
+	}
+	
+	#categorie section.flat .categorie_description{
+		width:35%;
+		position:relative;
+	}
+
+	#categorie section.flat .categorie_illustration{
+		width:65%;
+		display:flex;
+		align-items:flex-start;
+	}
+	
+	
+	#categorie .mobilier .categorie_illustration_wrapper{
+		width:100%;
+	}
+	#categorie .mobilier .categorie_recomandation{
+		width:100%;
+		display:flex;
+		box-shadow:none;
+		flex-direction:row;
+		justify-content:center;
+		margin:1em auto;
+		position:relative;
+		height:100px;
+		box-shadow:none;
+		border-bottom:none;
+		
+	}
+	#categorie .mobilier .categorie_recomandation li{
+		border:none;
+	}
+	#categorie .mobilier .categorie_recomandation ul{
+		flex-direction:row;
+		width:100%;
+	}
+	#categorie .mobilier .left{
+		display:none;
+	}
+	#categorie .moblier_description h1{
+		font-size:1.4em;
+		margin:0px;
+	}
+	#categorie .mobilier .categorie_recomandation li.diactive{
+		display:inline-block;
+	}
+}
+
+@media screen and (max-width:900px){
+	#categorie .flat article.categorie_illustration >div{
+		width:47%;
+	}
+	#categorie .flat article.categorie_illustration >div.three_star{
+		display:none;
+	}
+}
+@media screen and (max-width:815px){
+	#banner div{
+		//height:240px;
+	}
+	#banner .banner_description{
+		width:40%;
+	}
+	#banner .solde h1 span:first-child{
+		font-size:1.3em;
+	}
+	#banner .solde h1 span:last-child{
+		font-size:0.7em;
+	}	
+	#categorie section{
+		margin-top:1.5em;
+	}
+	#categorie .categorie_recomandation{
+		width:100%;
+		display:flex;
+		box-shadow:none;
+		flex-direction:row;
+		justify-content:center;
+		margin:1em auto;
+		position:relative;
+		height:100px;
+		box-shadow:none;
+		border-bottom:none;
+		border-bottom:1px solid rgba(0,0,0,0.1);
+		padding-bottom:1em;
+	}	
+	#categorie .categorie_recomandation ul{
+		flex-direction:row;
+		width:90%;
+	}
+	#categorie .categorie_recomandation li{
+		border-bottom:none;
+		padding-left:0px;
+		width:100px;
+	}
+	#categorie .categorie_recomandation li.diactive{
+		display:inline-block;
+	}
+	#categorie .categorie_description p:last-child{
+		padding-bottom:1em;
+	}
+	#categorie .categorie_description{
+		width:35%;
+	}
+	#categorie .categorie_illustration{
+		width:65%;
+	}
+	#categorie section.women{
+		padding-top:2em;	
+	}
+	
+	#categorie section.flat .categorie_recomandation{
+		display:flex;
+		justify-content:space-around;
+		padding-bottom:0px;
+		border:none;
+	}
+	#categorie section.flat .categorie_recomandation li{
+		width:40%;
+	}
+	#categorie section.flat .categorie_recomandation li.diactive{
+		display:none;
+	}
+}
+@media screen and (max-width:715px){
+	#banner .solde h1 span:first-child{
+		font-size:1.2em;
+	}
+	#banner .solde{
+		width:30%;
+	}
+	#banner .banner_description{
+		width:60%;
+	}
+	#categorie .categorie_recomandation{
+		margin-left:0px;
+	}
+	#categorie .categorie_recomandation ul{
+		width:100%;
+		justify-content:space-between;
+	}
+	#categorie .categorie_description{
+		width:55%;
+	}
+	#categorie .categorie_illustration{
+		width:45%;
+	}
+	#categorie .categorie_big_illustration{
+		width:100%;
+		height:250px;
+	}
+
+	#categorie .categorie_small_illustration{
+		width:100%;
+		height:300px;
+		display:none;
+		flex-direction:column;
+		justify-content:space-between;
+	}
+	
+	#categorie section.flat .categorie_description{
+		width:55%;
+	}
+
+	#categorie section.flat .categorie_illustration{
+		width:45%;
+	}
+	#categorie section.flat .categorie_recomandation li{
+		width:30%;
+	}
+	#categorie section.flat .categorie_recomandation li.diactive{
+		display:inline-block;
+	}
+	#categorie .flat article.categorie_illustration >div{
+		width:100%;
+	}
+	#categorie .flat article.categorie_illustration >div.four_star{
+		display:none;
+	}
+	
+	/*
+	#categorie .mobilier .categorie_illustration_wrapper{
+		overflow-x:scroll;
+		position:relative;
+		padding:0.5em 0px;
+	}*/
+	/*
+	#categorie .mobilier .categorie_illustration{
+		width:1700px;
+	}
+	*/
+	#categorie .mobilier .categorie_illustration div{
+		width:250px;
+		margin:0.5em 0px;
+		/border:1px solid red;
+	}
+	#categorie .mobilier a.equipement{
+		width:40%;
+	}
+	/*
+	#categorie .mobilier .categorie_illustration a{
+		border:1px solid red;
+	}
+	*/
+	/*
+	#categorie .mobilier .categorie_illustration_wrapper::-webkit-scrollbar{
+		width:5px;
+		height:6px;
+		background:rgba(157,157,255,0.3);
+		background:rgba(0,0,0,0.1);
+		display:block;
+		position:relative;
+		left:100px;
+		top:100px;
+	}
+	*/
+	#categorie .mobilier .categorie_illustration_wrapper::-webkit-scrollbar-thumb{
+		background:rgba(255,255,255,0.7);
+		background:rgba(0,128,192,0.4);
+		border-radius:6px;
+	}
+	#categorie .mobilier .categorie_illustration_wrapper::-webkit-scrollbar-button{
+		background:rgba(0,0,0,0.1);
+	}
+	
+	
+}
+@media screen and (max-width:600px){
+	#banner div{
+		padding:0.3em 0px;
+		height:240px;
+	}
+	#banner .banner_description{
+		width:85%;
+	}
+	#banner .solde h1 span:first-child{
+		font-size:1.2em;
+	}
+	#banner .solde{
+		width:30%;
+		display:none;
+	}
+	#banner .banner_description h1{
+		font-size:3.3em;
+	}
+	#banner .banner_description p{
+		margin-top:0.3em;
+	}
+	#categorie .categorie_description{
+		width:60%;
+	}
+	#categorie .categorie_illustration{
+		width:30%;
+		/height:200px;
+		/border:3px solid green;
+		/overflow:hidden;
+	}
+	#categorie .categorie_big_illustration{
+		width:100%;
+		height:200px;
+		/border:3px solid red;
+	}
+	#categorie section.flat .categorie_description{
+		width:60%;
+	}
+
+	#categorie section.flat .categorie_illustration{
+		width:40%;
+	}
+	.star {
+		width:20px;
+		height:20px;
+		margin:1px;
+	}
+	#categorie .flat article.categorie_illustration .flat_description p:last-child{
+		display:none;
+	}
+	
+}
+@media screen and (max-width:500px){
+	#banner div{
+		height:190px;
+	}
+	#banner .banner_description{
+		width:100%;
+	}
+	
+	#banner .banner_description h1{
+		font-size:2.5em;
+	}
+	#banner .banner_description h2{
+		font-size:1.5em;
+	}
+	#banner .banner_description p{
+		margin-top:0.4em;
+	}
+	#categorie .categorie_description{
+		width:60%;
+	}
+	#categorie .categorie_illustration{
+		width:40%;
+		border:none;
+		/height:200px;
+	}
+	#categorie .categorie_description h1{
+		font-size:1.3em;
+		margin-bottom:0.5em;
+	}
+	#categorie .categorie_description p{
+		margin-top:0.5em;
+	}
+	#categorie .categorie_description p:last-child{
+		padding-bottom:0.5em;
+	}
+	#categorie section.flat .categorie_recomandation li.diactive{
+		display:none;
+	}	
+	#categorie section.flat .categorie_recomandation li{
+		width:40%;
+	}
+	
+}
+@media screen and (max-width:470px){
+	#categorie .mobilier .categorie_illustration a.equipement{
+		display:none;
+	}
+	#categorie .mobilier .categorie_illustration div{
+		width:300px;
+		/margin:0.5em 0px;
+		/border:1px solid red;
+	}
+}
+@media screen and (max-width:450px){
+	#categorie section{
+		margin-top:1em;
+	}
+	#categorie .categorie_recomandation li{
+		width:90px;
+	}
+	#categorie .categorie_recomandation li.diactive,#categorie .mobilier .categorie_recomandation li.diactive{
+		display:none;
+	}
+	#categorie .categorie_recomandation p.recommantion_illustration{
+		height:35px;
+	}
+}
+
+@media screen and (max-width:400px){
+	#banner div{
+		height:200px;
+	}
+	#banner .banner_description{
+		width:100%;
+	}
+	
+	#banner .banner_description h1{
+		font-size:1.8em;
+		margin-top:0.1em;
+	}
+	#banner .banner_description h2{
+		font-size:1.3em;
+	}
+	#banner .banner_description p{
+		margin-top:0.5em;
+		font-size:0.8em;
+	}
+	
+	#categorie section.women{
+		padding-top:0px;
+	}
+	#categorie section{
+		margin-top:0em;
+	}
+	
+	#categorie .categorie_description{
+		width:100%;
+	}
+	#categorie .categorie_illustration{
+		width:100%;
+		border:none;
+		/height:180px;
+	}
+	#categorie .categorie_big_illustration{
+		width:100%;
+		height:180px;
+	}
+	#categorie section.flat .categorie_description{
+		width:100%;
+	}
+
+	#categorie section.flat .categorie_illustration{
+		width:100%;
+	}
+	#categorie section.flat .categorie_recomandation li.diactive{
+		display:inline-block;
+	}
+	#categorie section.flat{
+		margin-bottom:1.3em;
+	}
+	#categorie section.flat .categorie_recomandation li{
+		width:30%;
+	}
+}

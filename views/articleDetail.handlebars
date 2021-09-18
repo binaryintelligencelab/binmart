@@ -1,0 +1,267 @@
+{{#section "head"}}
+	<title>article</title>
+	<link rel="stylesheet" href="/public/css/article/article.css"/>
+	<meta name="viewport" content="width=device-width" initial-scale="1"/>
+			<style>
+				#article_wrapper ul.article_illustration .thumbnail li.active{				
+					border-bottom:5px solid {{color.name}};					
+				}
+			</style>
+		{{#if adminArticle}}
+			<style>
+				#article_wrapper{
+					margin-bottom:600px;
+					border:none;
+				}
+				#article_wrapper ul.article_illustration .thumbnail li.active{				
+					border-bottom:5px solid {{color.name}};					
+				}
+			</style>			
+		{{/if}}
+{{/section}}
+		<header>
+			{{> menu}}		
+		</header>
+		<div id="link">
+			<p>
+				<a>Acceuil</a> | <a>{{classe}}</a> | <a>{{select_categorie}}</a> | <a>{{type}}</a> | <a>{{article.name}}</a>
+			</p>
+			<p>
+				Avez-vous quelque chose a vendre ? <a>OUI</a>
+			</p>
+		</div>
+		<section id="article_wrapper">
+			<ul class="filter">
+				{{#each categorie}}
+					<li><a><em style="background:url(/public/image/thumbnail/{{../classe}}/{{name}}.png) center;background-size:cover"></em><span>{{name}}</span></a>
+						
+						<ul style="width:100%" class="type">
+							{{#each type}}
+								<li><a href="/{{../../classe}}/{{../name}}/{{.}}">{{.}}</a></li>
+							{{/each}}							
+						</ul>
+						
+					</li>
+				{{/each}}
+				
+			</ul>
+			<article>
+				<ul class="article_illustration" id="article_illustration">
+					<h2><span>{{article.definitiveName}}<em>(...{{article.definitiveMark}})</em></span><span>{{article.definitiveWholePrice}}$ <em>En Gros à partir de {{article.definitiveWholeNumber}} paires</em></span></h2>
+				
+										<section id="{{filename1}}" class="illustration_detail principale activeted">
+											<li style="background-image:url(/public/image/{{classe}}/{{article.categorie}}/{{article.type}}/{{color.filename1}})" id="{{color._id}}">
+												<span>
+													<em>En details</em>
+													<em>{{article.definitivePrice}} $</em>
+												</span>					
+											</li>
+											<ul class="thumbnail">
+												<li class="active" style="background-image:url(/public/image/{{classe}}/{{article.categorie}}/{{article.type}}/{{color.filename1}})">{{#if adminArticle}} <span title="supprimer">Image 1</span> {{/if}}</li>
+												<li style="background-image:url(/public/image/{{classe}}/{{article.categorie}}/{{article.type}}/{{color.filename2}})">{{#if adminArticle}}<span title="supprimer">Image 2</span>{{/if}}</li>
+												
+											</ul>
+																	
+												{{#if member}}
+													<form method="post" action="/addToCart/{{member.username}}/{{article._id}}/{{color._id}}" class="addToCart">
+														<label for="color">Couleur 
+															<span style="background:{{color.name}}; padding:2px 25px;margin:0px 0.5em;"></span>
+														<input name="color" type="color" value="{{color.name}}" hidden/> </label>	
+														<label for="size">Taille
+															<!--<input name="size" type="number" value="{{../body.size}}"/>	-->
+															<select name="size">
+																	{{#each article.definitiveSize}}
+																		<option value="{{.}}">{{.}}</option>																
+																	{{/each}}															
+															</select>
+															{{#if ../no_size}}
+																<span style="color:red;font-size:0.8em">Renseignez la taille</span>
+															{{/if}}
+															{{#if ../size_no_admissible}}
+																<span style="color:red;font-size:0.8em">Taille non admissible</span>
+															{{/if}}
+														</label>	
+														<label for="quantite">Quantité<input name="quantite" type="number" value="{{../body.quantite}}"/>											
+															{{#if ../no_quantite}}
+																<span style="color:red;font-size:0.8em">Renseignez la quantité</span>
+															{{/if}}
+															{{#if ../quantite_no_admissible}}
+																<span style="color:red;font-size:0.8em">Valeur non admissible</span>
+															{{/if}}
+														</label>
+														
+														<input type="submit" value="Ajoutez au Panier" class="submit"/>
+														
+														{{#if ../exist_panier}}
+															<span style="position:absolute;bottom:5em;left:25% ;color:white;background:rgba(255,0,0,1);padding:0.3em 0.5em">Cet article est deja dans votre panier</span>
+														{{/if}}
+													</form>	
+													{{else}}
+														<form method="post" action="/addToCart" class="addToCart">
+															<label for="color"> Couleur
+																<span style="background:{{color.name}};padding:2px 25px;margin:0px 0.5em;"></span>
+															<input name="color" type="color" value="{{color.name}}" hidden/> </label>	
+															<label for="size">Taille
+																<!--<input name="size" type="number" value=""/></label>	-->
+																<select name="size">
+																	{{#each article.definitiveSize}}
+																		<option value="{{.}}">{{.}}</option>																
+																	{{/each}}															
+																</select>
+															<label for="quantite">Quantité<input name="quantite" type="number" value=""/></label>	
+															<input type="submit" value="Ajoutez au Panier" class="submit"/>
+														</form>
+																								
+												{{/if}}									
+										</section>		
+					
+					
+				</ul>
+				<div class="article_description">
+					<ul class="description">
+						<h2>Description de l'article</h2>
+						<p class="guaranty" style="display:none"><span>GARANTIE 6 Mois</span></p>
+						<p>
+							{{article.definitiveDescription}}							
+						</p>
+						
+						
+					</ul>
+					<ul class="description caracteristique">
+						
+						{{#if typical}}
+							<h2>Caracteristiques</h2>
+							{{#each typical}}
+								<li class="alltypical"><span>{{definitiveTypicalName}}</span> : <span class="typicalvaluespan">{{definitiveTypicalValue}}</span></li>
+							{{/each}}
+							<!--
+							<li><span>Transparence</span> : <span>Non</span></li>
+							<li><span>Fermeture</span> : <span>Bouton</span></li>
+							<li><span>Modele</span> : <span>Simple</span></li>
+							-->
+						{{/if}}
+						<!--
+						<h2>Caracteristiques</h2>
+						
+						<li><span>Matiere</span> : <span>Coton</span></li>
+						<li><span>Transparence</span> : <span>Non</span></li>
+						<li><span>Fermeture</span> : <span>Bouton</span></li>
+						<li><span>Modele</span> : <span>Simple</span></li>
+						-->
+					</ul>
+					<ul class="size">
+						<h2>Taille Disponible</h2>
+						{{#each article.definitiveSize}}
+								<li title="numero disponible" class="user_size">{{.}}</li>
+						{{/each}}	
+						
+					</ul>
+					<ul class="color">
+						<h2>Couleur dispoble</h2>
+						{{#each allColors}}
+							{{#if principal}}
+									<a href="/{{../classe}}/{{../article.categorie}}/{{../article.type}}/{{../article._id}}/{{_id}}" class="principal_color">
+										<li style="background:{{name}}" title="{{name}}" id="{{filename1}}"></li>
+									</a>
+								{{else}}
+									<a href="/{{../classe}}/{{../article.categorie}}/{{../article.type}}/{{../article._id}}/{{_id}}">
+										<li style="background:{{name}}" title="{{name}}" id="{{filename1}}"></li>
+									</a>
+							{{/if}}																					
+						{{/each}}						
+					</ul>
+					<ul class="adress">
+						<h2>Point de distrubution</h2>
+						{{#if member}}
+							<li><span></span>RDC, Kinshasa, C/Barumbu, Avenue Kibati N°12</li>
+							<li><span></span>+243 81 751 23 84</li>
+							<li>24 /24 heures; 7 jours/7</li>
+								{{else}}								
+								<li><span></span>RDC, Kinshasa, C/Barumbu, Avenue Kibati N°12</li>
+								<li><span></span>+243 81 751 23 84</li>
+								<li>24 /24 heures; 7 jours/7</li>
+								<li>Veuillez vous <a href="/login" style="color:rgba(0,128,192,1)">Connectez</a> pour connaitre le point de distrubution le plus proche de chez vous</li>
+						{{/if}}
+					</ul>
+					
+					<ul class="warning">
+						<h2>Avertissement</h2>
+						<p>
+							Nous informons à tous les utilisateurs de la plateforme que 
+							les produits dispoble sur ce site sont certifiés et que toutes 
+							réclammations peut être formulée via nos differentes lignes de communication
+							<!--
+								ne sont en aucune facon vendue en ligne.
+								Pour les acheter veuillez svp vous rendre a l'adresse
+								du vendeur et le contacter personnellement.
+							-->
+						</p>
+					</ul>				
+				</div>
+			</article>
+			
+			<ul class="recommandation">				
+				<li>
+					<h3>Mango</h3>
+					<p class="recommantion_illustration" style="background:url(/public/image/women/shoes/de.png) center;background-size:cover"></p>
+					<em>Basket Nike</em>
+					<p><span>N°10</span><span>Prix :400$</span></p>
+				</li>
+				<li>
+					<h3>Orca</h3>
+					<p class="recommantion_illustration" style="background:url(/public/image/women/shoes/oik.png) center;background-size:cover"></p>
+					<em>Basket Puma</em>
+					<p><span>N°39</span><span>Prix :40$</span></p>
+				</li>
+				<li>
+					<h3>Orca</h3>
+					<p class="recommantion_illustration" style="background:url(/public/image/women/shoes/sho.jpg) center;background-size:cover"></p>
+					<em>Basket Puma</em>
+					<p><span>N°40</span><span>Prix :70$</span></p>
+				</li>
+				<li>
+					<h3>Mango</h3>
+					<p class="recommantion_illustration" style="background:url(/public/image/women/shoes/de.png) center;background-size:cover"></p>
+					<em>Basket Nike</em>
+					<p><span>N°10</span><span>Prix :400$</span></p>
+				</li>
+				<li>
+					<h3>Orca</h3>
+					<p class="recommantion_illustration" style="background:url(/public/image/women/shoes/oik.png) center;background-size:cover"></p>
+					<em>Basket Puma</em>
+					<p><span>N°39</span><span>Prix :40$</span></p>
+				</li>
+				<li>
+					<h3>Orca</h3>
+					<p class="recommantion_illustration" style="background:url(/public/image/women/shoes/sho.jpg) center;background-size:cover"></p>
+					<em>Basket Puma</em>
+					<p><span>N°40</span><span>Prix :70$</span></p>
+				</li>
+				
+			</ul>
+		</section>
+		<div id="recommanded_article">
+			<p><span><em>R</em><strong>Recommandations</strong><em> {{articles_length}} produits récommandés</em></span>
+					<a>Voir +</a>					
+			</p>
+			<ul class="all_post_wrapper">
+				{{#each articles}}
+								<li class="article">
+									<p class="article_illustration" style="background:url(/public/image/{{classe}}/{{categorie}}/{{type}}/{{filename1}}) center;background-size:cover">
+										<strong style="text-transform:uppercase">{{boutiName}}</strong>
+									</p>
+									<p class="article_description">
+										<span id="article_name">{{name}}<em style="text-transform:uppercase">(...{{mark}})</em></span>
+										<span class="prix">{{detailPrice}} $<em> Prix d'achat,Maison {{boutiName}}</em></span>
+										<span><em>{{boutiTown}}; Av {{boutiAvenue}}, N°{{boutiNum}}, C/{{boutiCommune}}</em></span>
+										<a href="/women/{{categorie}}/{{type}}/{{_id}}">Details</a>
+									</p>
+								</li>
+				{{/each}}					
+			</ul>				
+		</div>
+		
+		{{#section "jquery"}}
+			<script type="text/javascript" src="/public/js/articleDetail.js"></script>			
+		{{/section}}
+	

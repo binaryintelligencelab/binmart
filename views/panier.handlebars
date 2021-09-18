@@ -1,0 +1,216 @@
+{{#section "head"}}
+	<title>Profil</title>
+	<link rel="stylesheet" href="/public/css/panier/panier.css"/>
+	<meta name="viewport" content="width=device-width" initial-scale="1">
+{{/section}}
+		{{#if commande_error}}
+			<section id="commande_error" style="display:none">
+				<p>Une erreur est survenue lors de cette commande; <br/>Veuillez reeseyez plus tard s'il vous plait</p>
+			</section>
+		{{/if}}
+		{{#if operatorError}}
+			<section id="commande_error" style="display:none">
+				<p>Une erreur est survenue lors de cette commande; <br/>Veuillez reeseyez plus tard s'il vous plait</p>
+			</section>
+		{{/if}}
+		{{#if noadmissibe_operator}}
+			<section id="commande_error" style="display:none">
+				<p>Operateur non admissible; resseyez plus tard</p>
+			</section>
+		{{/if}}
+		<section id="payement">	
+			
+			<div class="africell choosed">
+				<p class="choice">Reinseignez votre numero de telephone</p>
+					<form class="airtel" method="post" action="/user/operator" id="operator_submit">
+						<span class="icone" style="background:url('/public/image/payement/airtel.png') center; background-size:cover"></span>
+						<p>
+							<label for="telephone" class="label">
+								<span>Montant Total à payer</span>
+								<span class="all_price"></span>
+								<input type="text" value="" class="phone" placeholder="Telephone"/>
+								<em class="required" style="font-size:0.4em;padding-top:0.6em;font-style:normal;color:red;display:none">Verifier votre numero</em>
+								<em class="badformat" style="font-size:0.4em;padding-top:0.6em;font-style:normal;color:red;display:none">Operateur non valide</em>
+							</label>
+							<input type="submit" value="OK" class="submit"/>
+						</p>						
+					</form>
+			</div>			
+			<p class="cancel_all" ><span>Annuler</span></p>
+		</section>
+	
+		
+		<header>
+			{{> menu}}				
+		</header>
+		{{#if deleteSuccess}}
+			<span class="box successBox">
+				<i>La suppression s'est fait avec succes</i>										
+			</span>
+		{{/if}}
+		{{#if deleteError}}
+			<span class="box successBox">
+				<i>Une erreur est survenue veuillez essayer plus tard</i>			
+			</span>
+		{{/if}}
+		<!--
+		<div id="link">
+			<p>
+				<a>Accueil</a>
+			</p>
+			<p>
+				<span>Avez-vous quelque chose à vendre ?</span> <a>OUI</a>
+			</p>
+		</div>
+		-->
+		<div id="post_wrapper">
+			
+			<ul class="filter">
+				{{#each categorie}}
+					<li><a><em style="background:url(/public/image/thumbnail/{{../classe}}/{{name}}.png) center;background-size:cover"></em><span>{{name}}</span></a>
+						<ul style="width:100%" class="type">
+							{{#each type}}
+								<li><a href="/{{../../path }}/{{../name}}/{{.}}">{{.}}</a></li>
+							{{/each}}							
+						</ul>
+					</li>
+				{{/each}}
+				
+			</ul>
+			
+		<div class="all_post_container">			
+			<div class="all_post">
+				
+				<p><span><em>P</em><strong>Mon Panier</strong><em class="art_number"> {{panier_length}} Articles</em> <em style="font-weight:normal">Cout Total</em> <em style="font-weight:bold;color:rgba(255,0,128,1);font-size:1em;" >{{#if panier}}<i id="cost"> </i> $ {{/if}}</em></span>
+					{{#if panier}}<a class="commande">Commander</a>	{{/if}}				
+				</p>
+				
+				<ul class="all_post_wrapper">
+					{{#if panier}}
+						
+						<form method="post" action="/user/commande" id="user_commande">
+							
+						{{#each panier}}
+							<div class="article_basket">
+								<span class="box deleteBox">									
+									<i>Voulez-vous supprimer cette article du panier ?</i>
+									<span><i class="no">Non</i><a href="/user/deletePanier/{{_id}}" class="yes">Oui</a></span>
+								</span>
+								
+								<span class="box editedBox">									
+									<i>Vous venez de modifier </i>									
+										<span><em class="sizeModif">- La Taille</em> <em class="colorModif">- La couleur</em> <em class="quantiModif">- La Quantité et</em> <em class="prixModif">- Le  Prix </em></span>
+									<i>Avec Success</i>
+								</span>
+								
+																
+								<input type="checkbox" name="elem" id="elem" checked value="{{_id}}"/>
+									
+
+									
+									<label for="" class="label">
+										<i class="id" style="display:hidden">{{panier_id}}</i>
+										
+										<div class="article_illustation" style="background:url(/public/image/{{classe}}/{{categorie}}/{{type}}/{{filename}});background-size:cover;background-position:center">
+											
+										</div>
+										<div class="article_detail">
+											<h1>{{title}}</h1>
+											<ul>
+												<li>
+													<span>Taille : </span>													
+													<select id="size">
+														{{#each sizes}}
+															{{#if active}}
+																<option selected value="{{size}}">{{size}}</option>
+																{{else}}
+																	<option value="{{size}}">{{size}}</option>
+															{{/if}}
+															
+														{{/each}}														
+													</select>
+												</li>
+												<li>
+													<span>Color : </span>
+													<em style="display:none" id="principalColor">{{color}}</em>
+													<p class="colors">
+														{{#each colors}}
+															{{#if active}}
+																<span style="background:{{color}}" class="active" id="{{color}}"></span>
+																{{else}}
+																	<span style="background:{{color}}" class="inactive" id="{{color}}"></span>
+															{{/if}}															
+														{{/each}}
+														
+													</p>
+													<span class="plus">+</span>
+													<span class="moins">-</span>
+												</li>
+												<li>
+													<span>Prix : </span>
+													<span><em id="price">{{price}} </em><em>$</em></span>
+												</li>
+												<li>
+													<span>Quantité : </span>
+													<input value="{{quantite}}" class="quantite" type="number" style="width:50px;"/>
+												</li>											
+											</ul>
+											<h2>Description</h2>
+											<p>
+												{{description}}
+											</p>
+										</div>
+										<p>
+											<em class="edit" id="{{_id}}" >Modifier</em>
+											<em class="delete" id="{{_id}}">Supprimer</em>
+											
+										</p>
+									</label>
+							</div>
+							
+						{{/each}}
+						</form>
+					{{/if}}
+					{{#if no_panier}}
+						<p style="display:flex;align-items:center;justify-content:center;width:100%;"><img src="/public/image/login/panier.png" style="width:150px;height:150px;"><span style="font-size:1.5em;">Votre panier est vide</span></p>
+					
+					{{/if}}					
+					
+				</ul>
+			</div>
+			
+		</div>
+		
+		<div class="categorie_recomandation">
+						<ul>
+							<li>
+								<h3>Belle Dame</h3>
+								<p class="recommantion_illustration" style="background:url(image/women/watch/m1.jpg) center;background-size:cover"></p>
+								<em>Montre Dame</em>
+								<p><span>En Or</span><span>Prix :400$</span></p>
+							</li>
+							<li>
+								<h3>Orca</h3>
+								<p class="recommantion_illustration" style="background:url(image/women/shoes/sh.png) center;background-size:cover"></p>
+								<em>Sandale Dame</em>
+								<p><span>N°39</span><span>Prix :40$</span></p>
+							</li>
+							<li>
+								<h3>Orca</h3>
+								<p class="recommantion_illustration" style="background:url(image/women/shoes/sho.jpg) center;background-size:cover"></p>
+								<em>Basket Dame</em>
+								<p><span>N°40</span><span>Prix :70$</span></p>
+							</li>
+							<li class="diactive">
+								<h3>Belle Dame</h3>
+								<p class="recommantion_illustration" style="background:url(image/women/watch/m1.jpg) center;background-size:cover"></p>
+								<em>Montre Dame</em>
+								<p><span>En Or</span><span>Prix :400$</span></p>
+							</li>
+							
+						</ul>
+		</div>
+	</div>
+	{{#section "jquery"}}
+		<script type="text/javascript" src="/public/js/panier.js"></script>
+	{{/section}}

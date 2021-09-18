@@ -1,0 +1,10 @@
+{
+"age":{
+	adult:{
+		vetement:[robe,jupe,pagne,t-shirt,chemise,blouse]
+	},
+	enfants:{
+		vetement:[robe,jupe,pagne,t-shirt,chemise,blouse]
+	}
+	}
+}

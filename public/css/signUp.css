@@ -1,0 +1,213 @@
+body{
+	/background:rgba(0,0,0,0.2);
+	background:url("../image/login/b.jpg") center;
+	background-repeat:no-repeat;
+	background-size:cover;
+	display:flex;
+}
+footer{
+	display:none;
+}
+#banner_container{
+	/background:url("../image/login/forum-header.jpg") center;
+	/background-size:cover;
+}		
+#banner_container .login_message{
+	margin:0px;
+	padding:0px;
+	background:-webkit-linear-gradient(left,rgba(244,244,244,1),rgba(244,244,244,0.8));
+}
+#banner_container .login_message div{
+	padding:0px;
+	/padding-top:4em;
+	/color:rgba(50,50,50,1);
+	width:80%;
+	margin:auto;
+}
+
+#banner_container .login_message h1{
+	border-bottom:0.5px solid rgba(0,128,192,0.5);
+	padding-bottom:4px;
+	font-weight:normal;
+	font-size:25px;
+}
+
+#banner_container .login_message p{
+	font-size:15px;
+}
+
+
+
+#login_container{
+	margin:0px;
+	/background:url("../image/login/b.jpg") center;
+	background-size:cover;
+	padding:0.1em 0px;
+	position:relative;
+	display:flex;
+	padding-top:5em;
+	/padding-bottom:1em;
+	background:rgba(255,255,255,0.9);
+	background:-webkit-linear-gradient(left,rgba(255,255,255,1),rgba(255,255,255,0.9));
+	/position:absolute;
+	/top:0px;
+	/left:0px;
+	/right:0px;
+	/bottom:0px;
+	width:100%;
+}
+#login_container:before{
+	content:"";
+	position:absolute;
+	top:0px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	/background:-webkit-linear-gradient(left,rgba(0,0,0,1),rgba(0,0,0,0.1));
+}
+
+#login_container h1{
+	font-size:1.5em;
+	font-weight:normal;
+	/color:white;
+	margin-bottom:0px;
+	margin-bottom:1em;
+	margin-top:0px;
+	font-weight:bold;
+}
+
+#login_container label{
+	display:block;
+	color:rgba(0,0,0,0.7);
+	font-size:15px;
+}
+
+#login_container .login_wrapper{
+	width:80%;
+	margin:auto;
+	position:relative;
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	padding-top:0px;
+}
+#login_container  .login_form{
+	width:50%;
+	padding:0px;
+	/border:1px solid red;
+}
+#login_container  .login_form label input{
+	display:block;
+	width:99%;
+	margin:auto;
+	border:none;
+	border-bottom:1px solid rgba(192,192,192,1);
+	font-size:14px;
+	padding-bottom:0.4em;
+	padding-left:0em;
+	padding-top:0.5em;
+	outline:none;	
+	color:rgba(0,0,0,0.8);
+	/color:rgba(255,255,255,0.8);
+	background:transparent;
+	margin-bottom:0.7em;
+}
+#login_container  .login_form label input:focus{
+	/background:rgba(0,0,0,0.2);
+}
+
+#login_container label span{
+	display:block;
+	width:100%;
+	margin:0px auto;
+	font-size:0.7em;
+	color:rgba(192,192,192,0.9);
+	margin-top:0.5em;
+	font-weight:normal;
+}
+#login_container label span.required{
+	color:red;
+	padding-bottom:0.8em;
+}
+
+#login_container .login_form ::-webkit-input-placeholder{
+	font-size:13px;
+	color:rgba(192,192,192,0.5);
+	color:rgba(0,0,0,0.1);
+}
+
+#login_container label.checkbox input{
+	display:inline-block;
+	width:auto;
+}
+
+#login_container .login_form p{
+	font-size:14px;
+	color:rgba(0,0,0,0.8);
+}
+
+
+#login_container .login_form .term_of_use{
+	color:rgba(0,128,192,1);
+}
+#login_container .login_form p.login_register{
+	display:flex;
+	justify-content:space-between;
+}
+#login_container .login_form p.login_register input{
+	background:none;
+	border:none;
+}
+#login_container .login_form p.genre input{
+	width:auto;
+}
+#login_container .login_form p.genre label{
+	display:flex;
+	justify-content:flex-start;
+	border:1px solid red;
+	width:auto;
+}
+#login_container .login_form  p.login_register  input.register{
+	border:none;
+	padding:5px 15px;
+	font-size:11px;
+	color:rgba(255,255,255,1);
+	/border:0.5px solid rgba(128,128,128,0.3);
+	/background:rgba(0,0,0,0.2);
+	background:rgba(0,128,192,1);
+	border-radius:5px;
+}
+
+@media screen and (max-width:700px){
+	#login_container  .login_form{
+		width:75%;
+		padding:0px;
+	}
+	#banner_container .login_message h1{
+		font-size:18px;
+	}
+	#login_container .login_form p{
+		font-size:0.8em;
+	}
+	
+}
+
+@media screen and (max-width:500px){
+	#login_container  .login_form{
+		width:90%;
+		padding:0px;
+	}
+	#banner_container .login_message h1{
+		font-size:13px;
+		margin-bottom:0px;
+	}
+	
+	#banner_container .login_message p{
+		font-size:0.8em;
+		margin-bottom:0px;
+	}
+	
+	#login_container h1{
+		font-size:1em;
+	}
+}

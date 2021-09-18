@@ -1,0 +1,139 @@
+{{#section "head"}}
+	<link rel="stylesheet" type="text/css" href="/public/css/signUp.css"/>
+{{/section}}
+
+<header>
+	{{> menu}}
+</header>
+<section id="login_container">
+				<div class="login_wrapper">
+					<div class="login_form">
+							<h1>Creer un nouveau compte</h1>							
+							<form method="post" action="/signup">
+								<label for="name">
+									Nom
+									<input type="text" placeholder="votre nom complet" value="{{body.name}}" name="name"/>									
+									{{#if no_name}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									{{#if badname}}
+										<span class="required">{{badname}}</span>
+									{{/if}}
+								</label>
+								<label for="surname">
+									prenom
+									<input type="text" placeholder="votre nom complet" value="{{body.surname}}" name="surname"/>									
+									{{#if no_surname}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									{{#if badsurname}}
+										<span class="required">{{badsurname}}</span>
+									{{/if}}
+								</label>
+								<label for="username">
+									Identifiant
+									<input type="text" placeholder="Votre nom d'utisateur" value="{{body.username}}" name="username"/>
+									{{#if no_username}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									{{#if badusername}}
+										<span class="required">{{badusername}}</span>
+									{{/if}}
+									{{#if username_exist}}
+										<span class="required">{{username_exist}}</span>
+									{{/if}}
+								</label>
+								
+								<!--
+								<label for="email">
+									<input type="email" placeholder="Votre address mail actuelle" value="{{body.email}}" name="email"/>
+									{{#if no_email}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+								</label>
+								-->
+								<label for="telephone">
+									Numero de Telephone
+									<input type="tel" placeholder="Numero de telephone" value="{{body.telephone}}" name="telephone"/>
+					
+									{{#if no_telephone}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									{{#if check_number}}
+										<span class="required">{{check_number}}</span>
+									{{/if}}
+									
+									{{#if no_valid_number}}
+										<span class="required">{{no_valid_number}}</span>
+									{{/if}}
+									
+									{{#if user_exist}}
+										<span class="required">{{user_exist}}</span>
+									{{/if}}
+									
+									{{#if no_valid_operator}}
+										<span class="required">{{no_valid_operator}}</span>
+									{{/if}}
+									
+								</label>
+								<label for="password">
+									Mot de passe
+									<input type="password" placeholder="Votre mot de passe" value="{{body.password}}" name="password"/>
+									<span>Miminum 8 caracteres</span>
+									{{#if no_password}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									{{#if badpassword}}
+										<span class="required">{{badpassword}}</span>
+									{{/if}}
+									{{#if check_password_length}}
+										<span class="required">{{check_password_length}}</span>
+									{{/if}}
+								</label>
+								<label for="password_confirmation">
+									Confirmez le mot de passe
+									<input type="password" placeholder="Confirmer votre mot passe" value="{{body.password_confirmation}}" name="password_confirmation"/>
+									{{#if no_password_confirmation}}
+										<span class="required">Ce champ est obligatoire</span>
+									{{/if}}
+									{{#if check_password}}
+											<span class="required">{{check_password}}</span>
+									{{/if}}
+									{{#if badconfirmation}}
+											<span class="required">{{badconfirmation}}</span>
+									{{/if}}
+								</label>
+								<label for="town">
+									Ville de residence
+									<input type="text" placeholder="Votre ville" value="{{body.town}}" name="town"/>
+									{{#if no_town}}
+										<span class="required">Reinseignez votre ville pour obtenir les points de distribution le plus proche de chez vous</span>
+									{{/if}}
+									{{#if badtown}}
+										<span class="required">{{badtown}}</span>
+									{{/if}}
+								</label>
+								<label for="commune">
+									Commune de résidence
+									<input type="text" placeholder="Votre ville" value="{{body.commune}}" name="commune"/>
+									{{#if no_commune}}
+										<span class="required">Reinseignez votre commune pour obtenir les points de distribution le plus proche de chez vous</span>
+									{{/if}}
+									{{#if badcommune}}
+										<span class="required">{{badcommune}}</span>
+									{{/if}}
+								</label>
+								
+								
+								
+								<p>
+									En  creant un compte vous accepter les 
+									<span class="term_of_use"> conditions generales</span> d'utilisation
+								</p>
+								<p class="login_register">
+									<input type="submit" value="S'inscrire" name="register"class="register"/>									
+								</p>
+							</form>
+					</div>
+				</div>
+			</section>

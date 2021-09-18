@@ -1,0 +1,74 @@
+{{#section "head"}}
+	<title>Femmes</title>
+	<link rel="stylesheet" href="/public/css/post/post.css"/>
+	<meta name="viewport" content="width=device-width" initial-scale="1">
+	<style>
+		#article_name:first-letter{
+			text-transform:uppercase;
+		}
+	</style>
+{{/section}}
+		<header>
+			{{> menu}}			
+		</header>
+		<div id="link">
+			<p>
+				<a>Accueil</a> / <a>{{classe}} </a> / <a>{{select_categorie}}</a> / <a>{{select_type}}</a>
+			</p>
+			<p>
+				<span>Avez-vous quelque chose à vendre ?</span> <a>OUI</a>
+			</p>
+		</div>
+		
+		<div id="post_wrapper" style="margin-top:0.5em">
+			<ul class="filter">	
+				{{#each categorie}}
+					<li><a><em style="background:url(/public/image/thumbnail/{{../classe}}/{{name}}.png) center;background-size:cover"></em><span>{{name}}</span></a>
+						<ul style="width:100%" class="type">
+							{{#each type}}
+								<li><a href="/{{../../classe}}/{{../name}}/{{.}}">{{.}}</a></li>
+							{{/each}}							
+						</ul>
+					</li>
+				{{/each}}
+				
+				<p class="shop">					
+					<a style="background:url(image/shop/mango.png) center;background-size:cover"></a>					
+					<a style="background:url(image/shop/v.png) center;background-size:cover"></a>					
+					<a style="background:url(image/shop/z.png) center;background-size:cover"></a>									
+				</p>
+			</ul>
+		<div class="all_post_container">			
+				
+			<div class="all_post">
+				<a class="more" href="/{{classe}}/{{select_categorie}}/{{select_type}}">Voir +</a>
+				<p><span><em style="background:url(/public/image/thumbnail/{{classe}}/{{select_categorie}}.png) center;background-size:cover"></em><strong>{{select_type}}</strong><em> Catalogues de meuillere {{select_type}} </em></span>
+					<!--<a href="/women/vetements/{{name}}">Voir +</a>	-->				
+				</p>
+				<ul class="all_post_wrapper">
+					{{#each articles}}
+						<li class="article">
+							<p class="article_illustration" style="background:url(/public/image/{{classe}}/{{age}}/{{categorie}}/{{type}}/{{filename1}}) center;background-size:cover">
+								<strong style="text-transform:uppercase">{{boutiName}}</strong>
+							</p>
+							<p class="article_description">
+								<strong><em>{{definitiveName}}</em> <em>(...{{definitiveMark}})</em></strong>
+								<strong><em>{{definitivePrice}}$</em><em>Prix d'achat en detail</em></strong>
+								<strong><em>{{definitiveDescription}}</em></strong>
+								<!--<span><em>{{boutiTown}}; Av {{boutiAvenue}}, N°{{boutiNum}}, C/{{boutiCommune}}</em></span>-->
+								<a href="/{{../classe}}/{{../select_categorie}}/{{../select_type}}/{{_id}}">Details</a>
+							</p>
+						</li>
+					{{/each}}
+					
+				</ul>
+			</div>
+							
+		</div>
+	</div>
+		<!--
+		<footer>
+			<h1 style="color:white">Footer</h1>
+		</footer>
+		-->
+	</body>

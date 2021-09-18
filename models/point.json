@@ -1,0 +1,22 @@
+{
+	"kinshasa":{
+		"barumbu":{
+			"avenue":"kibati",
+			"numero":"5"
+		},
+		"lemba":{
+			"avenue":"kenge",
+			"numero":"2"
+		}
+	},
+	"lubumbashi":{
+		"kampemba":{
+			"avenue":"de la liberte",
+			"numero":"2"
+		},
+		"luano":{
+			"avenue":"kelemani",
+			"numero":"1"
+		}
+	}
+}

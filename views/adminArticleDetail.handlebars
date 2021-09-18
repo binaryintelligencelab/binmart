@@ -1,0 +1,400 @@
+{{#section "head"}}
+	<title>article</title>
+	<link rel="stylesheet" href="/public/css/article/adminArticle.css"/>
+	<meta name="viewport" content="width=device-width" initial-scale="1"/>
+		<style>				
+			#article_wrapper ul.article_illustration .thumbnail li.active{				
+				border-bottom:5px solid {{color.name}};					
+			}
+		</style>
+		{{#if adminArticle}}
+			<style>
+				#article_wrapper{
+					margin-bottom:600px;
+					border:none;
+				}
+			</style>			
+		{{/if}}
+{{/section}}
+		<header>
+			{{> menu}}		
+		</header>
+		<div id="link">
+			<p>
+				<a>Acceuil</a> | <a>{{classe}}</a> | <a>{{select_categorie}}</a> | <a>{{type}}</a> | <a>{{article.name}}</a>
+			</p>
+			<p>
+				Avez-vous quelque chose a vendre ? <a>OUI</a>
+			</p>
+		</div>
+		<section id="article_wrapper">
+			<ul class="filter">
+				{{#each categorie}}
+					<li><a><em style="background:url(/public/image/thumbnail/{{../classe}}/{{name}}.png) center;background-size:cover"></em><span>{{name}}</span></a>
+						
+						<ul style="width:100%" class="type">
+							{{#each type}}
+								<li><a href="/{{../../classe}}/{{../name}}/{{.}}">{{.}}</a></li>
+							{{/each}}							
+						</ul>
+						
+					</li>
+				{{/each}}
+				
+			</ul>
+			<article>
+				<ul class="article_illustration" id="article_illustration">
+					<h2><span>{{#if article.name}} {{article.name}} {{else}} {{article.definitiveName}} {{/if}}<em>{{#if article.mark}} (...{{article.mark}}) {{else}} (...{{article.definitiveMark }}) {{/if}}</em></span><span>{{#if article.wholePrice}} {{article.wholePrice}} {{else}} {{article.definitiveWholePrice}}{{/if}}$ <em>En Gros à partir de {{#if article.wholeNumber}} {{article.wholeNumber}} {{else}} {{article.definitiveWholeNumber}} {{/if}} paires</em></span></h2>
+									
+																
+											<section id="{{filename1}}" class="illustration_detail principale activeted">
+												
+											{{#if color.filename1Edited}}
+												<li style="background-image:url(/public/image/{{classe}}/{{article.categorie}}/{{article.type}}/{{color.filename1Edited}})" id="{{color._id}}">
+													<span>
+													
+														<em>En details</em>
+														<em>{{#if article.detailPrice}} {{article.detailPrice}} {{else}} {{article.definitivePrice}}{{/if}}$</em>
+													</span>
+													<p>
+														{{#unless color.principal}}
+															{{#if color.active}}
+															<a href="/admin/deactiveColor/{{article/_id}}/{{color._id}}"style="background:yellow" title="desactivé la couleur"></a>
+															{{else}}
+																<a href="/admin/activeColor/{{article._id}}/{{color._id}}"style="background:blue" title="activé la couleur"></a>
+															{{/if}}
+														{{/unless}}	
+														
+														
+														{{#if article.flag}}
+															<a href="/admin/deactivate/{{article._id}}"  title="Désactivé l'article" style="background:red"></a>
+															
+															{{else}}
+																<a href="/admin/activate/{{article._id}}"  title="Activé l'article" style="background:green"></a>
+															
+														{{/if}}
+													</p>
+												</li>
+											{{/if}}
+											{{#unless color.filename1Edited}}
+											
+												<li style="background-image:url(/public/image/{{classe}}/{{article.categorie}}/{{article.type}}/{{color.filename1}})" id="{{color._id}}">
+													<span>
+													
+														<em>En details</em>
+														<em>{{#if article.detailPrice}} {{article.detailPrice}} {{else}} {{article.definitivePrice}}{{/if}}$</em>
+													</span>
+													<p>
+														{{#unless color.principal}}
+															{{#if color.active}}
+															<a href="/admin/deactiveColor/{{article/_id}}/{{color._id}}"style="background:yellow" title="desactivé la couleur"></a>
+															{{else}}
+																<a href="/admin/activeColor/{{article._id}}/{{color._id}}"style="background:blue" title="activé la couleur"></a>
+															{{/if}}
+														{{/unless}}	
+														
+														{{#if article.flag}}
+															<a href="/admin/deactivate/{{article._id}}"  title="Désactivé l'article" style="background:red"></a>
+															
+															{{else}}
+																<a href="/admin/activate/{{article._id}}"  title="Activé l'article" style="background:green"></a>
+															
+														{{/if}}
+													</p>
+												</li>
+											{{/unless}}
+												<ul class="thumbnail">
+													{{#if color.filename1Edited}}
+														<li class="active" style="background-image:url(/public/image/{{classe}}/{{article.categorie}}/{{article.type}}/{{color.filename1Edited}})">Non{{#if adminArticle}} {{/if}}</li>
+													{{/if}}
+													{{#unless color.filename1Edited}}
+														<li class="active" style="background-image:url(/public/image/{{classe}}/{{article.categorie}}/{{article.type}}/{{color.filename1}})">Ok{{#if adminArticle}}  {{/if}}</li>
+													{{/unless}}
+													
+													{{#if color.filename2Edited}}
+														<li style="background-image:url(/public/image/{{classe}}/{{article.categorie}}/{{article.type}}/{{color.filename2Edited}})">Non{{#if adminArticle}} {{/if}}</li>
+													{{/if}}
+													{{#unless color.filename2Edited}}
+													<li style="background-image:url(/public/image/{{classe}}/{{article.categorie}}/{{article.type}}/{{color.filename2}})">Ok{{#if adminArticle}} {{/if}}</li>
+													{{/unless}}
+													
+													
+												</ul>
+												
+												<div class="edit_image">
+													<form method="post" action="/admin/editColor/{{article._id}}/{{color._id}}">
+														<p class="color"> <em>Modifier la couleur actuelle</em><input type="color" name="color" style="width:50px" value="{{color.name}}"/><button type="submit" class="span">OK</button> {{#if color_existed}}<span style="color:red"> Désolé Couleur existante</span>{{/if}}</p>								
+														
+													</form>
+													<form method="post" action="/admin/editFirstImage/{{article._id}}/{{color._id}}" enctype="multipart/form-data">								
+														<label for="file">Prémiere Image<p><input type="file" value="Ajouter une image" name="file"/><button type="submit" class="span">OK</button></p></label>
+													</form>
+													<form method="post" action="/admin/editSecondImage/{{article._id}}/{{color._id}}" enctype="multipart/form-data">								
+														<label for="file">Deuxime Image<p><input type="file" value="Ajouter une image" name="file"/><button type="submit" class="span">OK</button></p></label>
+													</form>
+												</div>
+											</section>				
+					
+								
+				<form method="post" action="/admin/editArticleDetail/{{article._id}}" id="first_edit">
+							<h3><strong><span>+</span>Modifier les details</strong></h3>
+							<div>
+							
+									<label for="name">
+										<p>
+											<span>Nom</span>
+											<input type="text" placeholder="Identifier votre article par un nom" value="{{#if article.name}} {{article.name}} {{else}} {{article.definitiveName}}{{/if}}" name="name"/>									
+										</p>
+										<i class="required">Ce champ est obligatoire</i>
+									</label>
+									<label for="mark">
+										<p>
+											<span>Marque</span>
+											<input type="text" placeholder="Marque de l'article exemple : dolce&cabana" value="{{#if article.mark}} {{article.mark}} {{else}} {{article.definitiveMark}} {{/if}}" name="mark"/>									
+										</p>
+										<i class="required">Ce champ est obligatoire</i>
+									</label>
+									<label for="detail_price">
+										<p>
+											<span>Prix en detail</span>
+											<input type="text" placeholder="prix en detail exemple: 200 $ ou 200 FC" value="{{#if article.detailPrice}} {{article.detailPrice}} {{else}} {{article.definitivePrice}}{{/if}}" name="detail_price"/>									
+										</p>									
+									</label>
+									<label for="gros_price">
+										<p>
+											<span>Prix en gros</span>
+											<input type="text" placeholder="prix en gros exemple: 200$ ou 200 FC" value="{{#if article.wholePrice}} {{article.wholePrice}} {{else}} {{article.definitiveWholePrice}} {{/if}}" name="gros_price"/>									
+										</p>									
+									</label>
+									<label for="gros_number">
+										<p>
+											<span>Nombre en gros</span>
+											<input type="text" placeholder="Nombre d'article en gros" value="{{#if article.wholeNumber}}  {{article.wholeNumber}} {{else}} {{article.definitiveWholeNumber}} {{/if}}" name="gros_number"/>									
+										</p>									
+									</label>
+									<input type="submit" value="Modifier" style="background:rgba(0,128,192,1);color:white;border:none"/>
+								</div>
+						</form>
+						
+						<form class="panier boost">
+							<h3><strong><span>+</span>Booster mon article</strong></h3>
+							<p>Veuillez choisir le temps de visibilite de l'article sur la plateforme; votre article sera visible qu'apres verification du payement</p>
+							<label>
+								<select>
+									<option>Top article</option>
+									<option>Second Article</option>
+									<option>Sky</option>								
+								</select>
+							</label>
+							<label>
+								<select>
+									<option>Un Jour pour 5$</option>
+									<option>Une Semaine pour 5$</option>
+									<option>Un Mois pour 5$</option>
+									<option>Une Trimestre pour 5$</option>
+									<option>Un Trimestre pour 5$</option>
+								</select>
+							</label>
+							<span>OK</span>
+						</form>
+						<form style="margin-top:1em;margin-bottom:2em;padding-bottom:2em">
+							{{#if article.flag}}
+									<a href="/admin/deactivate/{{article._id}}" class="delete"><span>Desactiver</span></a>
+									<p style="font-style:italic;font-size:0.9em">La desactivation rend l'article invisible à tous nos utilisateurs autre que vous</p>
+								{{else}}
+									<a href="/admin/activate/{{article._id}}" class="delete activate"><span>Activer</span></a>
+									<p style="font-style:italic;font-size:0.9em">L'activation rend l'article visible à tous nos utilisateurs </p>
+							{{/if}}							
+						</form>
+					
+					
+				</ul>
+				<div class="article_description">
+					<ul class="description">
+						<h2>Description de l'article</h2>
+						<p class="guaranty" style="display:none"><span>GARANTIE 6 Mois</span></p>
+						<p>
+							{{#if article.description}}
+								{{article.description}}	
+								{{else}}
+									{{article.definitiveDescription}}
+							{{/if}}
+													
+						</p>
+						<form method="post" action="/admin/editDescription/{{article._id}}">
+								<p class="edit" style="display:none"><span>Modifier</span></p>
+								<label for="description"><textarea name="description">{{#if article.description}} {{article.description}} {{else}} {{article.definitiveDescription}}{{/if}}</textarea></label>
+								<p class="edit submit"><input type="submit" value="Appliquer"/></p>
+							</form>
+					</ul>
+					
+					<ul class="description caracteristique">
+					{{#if articledetail}}
+						<h2>Caracteristiques</h2>						
+						<form>
+							<span id="articleId" style="display:none">{{article._id}}</span>
+							<span id="articleClasse" style="display:none">{{article.classe}}</span>
+							<span id="articleCategory" style="display:none">{{article.categorie}}</span>
+							<label for="typicalName">
+								<em>Nom :</em>
+									<input type="text" name="typicalName" id="typicalName"/>
+									<span class="name_required">Indiquer le nom</span>
+									<!--
+									<select id="typicalName" name="typicalName">
+										
+										{{#each articledetail}}
+											<option>{{name}}</option>
+										{{/each}}
+									</select>
+									-->
+							</label>
+							<label for="typicalValue">
+								<em>Valeur:</em>
+								<input type="text" name="typicalValue" id="typicalValue"/>
+								<span style="width:100%;" class="value_required">Indiquer le valeur</span>
+								<!--
+								<select id="typicalValue" name="typicalValue">								
+									
+								</select>
+								-->
+							</label>
+							<span class="submit" id="submit">OK</span>
+							
+						</form>
+						{{#if typical}}
+							{{#each typical}}
+								<li class="alltypical" id="{{_id}}"><input type="text" value="{{#if typicalName}} {{typicalName}} {{else}} {{definitiveTypicalName}}{{/if}}"/> : <input type="text" class="typicalvaluespan" value="{{#if typicalValue}} {{typicalValue}} {{else}} {{definitiveTypicalValue}} {{/if}}"/><a class="edit">E</a><a class="remove">D</a></li>
+							{{/each}}
+							<!--
+							<li><span>Transparence</span> : <span>Non</span></li>
+							<li><span>Fermeture</span> : <span>Bouton</span></li>
+							<li><span>Modele</span> : <span>Simple</span></li>
+							-->
+						{{/if}}
+						
+					{{/if}}
+						
+						
+					</ul>
+					
+					<ul class="size">
+						<h2>Taille Disponible</h2>
+						{{#if article.size}}
+								{{#each article.size}}
+									<li title="supprimer">{{.}}</li>
+								{{/each}}
+							{{else}}
+								{{#each article.definitiveSize}}
+									<li title="supprimer">{{.}}</li>
+								{{/each}}
+						
+						{{/if}}
+						
+						<form method="post" action="/admin/addNumber/{{article._id}}">
+							<p class="add"><label for="size"><input type="number" placeholder="taille" name="size"/> </label><input type="submit" class="submit" value="Ajouter"/></p>
+						</form>
+					</ul>
+					<ul class="color">
+						<h2>Couleur dispoble</h2>
+						{{#each allColors}}
+							{{#if principal}}
+									<a href="/{{../classe}}/{{../article.categorie}}/{{../article.type}}/{{../article._id}}/{{_id}}" class="principal_color">
+										<li style="background:{{name}}" title="{{name}}" id="{{filename1}}"></li>
+									</a>
+								{{else}}
+									<a href="/{{../classe}}/{{../article.categorie}}/{{../article.type}}/{{../article._id}}/{{_id}}">
+										<li style="background:{{name}}" title="{{name}}" id="{{filename1}}"></li>
+									</a>
+							{{/if}}																					
+						{{/each}}
+						<form method="post" action="/admin/addNewColor/{{article._id}}" enctype="multipart/form-data">
+								<h3>Ajouter une nouvelle couleur</h3>
+								<label for="file"><span>Les deux Images</span><input type="file" name="file" multiple/>
+									{{#if no_image}}<i class="required">Ce champ est obligatoire</i>{{/if}}
+									{{#if no_two_image}}<i class="required">Deux images sont requise par une couleur</i>{{/if}}
+								</label>								
+								<label for="color"><span>Couleur de l'article</span><input type="color" name="color">
+									
+									{{#if color_exist}}
+										<i class="required">Une couleur n'est peux etre ajouter deux fois</i>
+									{{/if}}
+									{{#if no_color}}
+										<i class="required">Ce champ est obligatoire</i>
+									{{/if}}
+								</label>
+								<span><input class="add" type="submit" value="Ajouter"/></span>
+							</form>
+					</ul>
+					<!--
+					<ul class="adress">
+						<h2>Point de distrubution</h2>
+						{{#if member}}
+							<li><span></span>RDC, Kinshasa, C/Barumbu, Avenue Kibati N°12</li>
+							<li><span></span>+243 81 751 23 84</li>
+							<li>24 /24 heures; 7 jours/7</li>
+								{{else}}								
+								<li><span></span>RDC, Kinshasa, C/Barumbu, Avenue Kibati N°12</li>
+								<li><span></span>+243 81 751 23 84</li>
+								<li>24 /24 heures; 7 jours/7</li>
+								<li>Veuillez vous <a href="/login" style="color:rgba(0,128,192,1)">Connectez</a> pour connaitre le point de distrubution le plus proche de chez vous</li>
+						{{/if}}
+					</ul>
+					-->
+					<ul class="warning">
+						<h2>Avertissement</h2>
+						<p>
+							Nous informons à tous les utilisateurs de la plateforme que 
+							les produits dispoble sur ce site sont certifiés et que toutes 
+							réclammations peut être formulée via nos differentes lignes de communication
+							
+						</p>
+					</ul>				
+				</div>
+			</article>
+			
+			<ul class="recommandation">				
+				<li>
+					<h3>Mango</h3>
+					<p class="recommantion_illustration" style="background:url(/public/image/women/shoes/de.png) center;background-size:cover"></p>
+					<em>Basket Nike</em>
+					<p><span>N°10</span><span>Prix :400$</span></p>
+				</li>
+				<li>
+					<h3>Orca</h3>
+					<p class="recommantion_illustration" style="background:url(/public/image/women/shoes/oik.png) center;background-size:cover"></p>
+					<em>Basket Puma</em>
+					<p><span>N°39</span><span>Prix :40$</span></p>
+				</li>
+				<li>
+					<h3>Orca</h3>
+					<p class="recommantion_illustration" style="background:url(/public/image/women/shoes/sho.jpg) center;background-size:cover"></p>
+					<em>Basket Puma</em>
+					<p><span>N°40</span><span>Prix :70$</span></p>
+				</li>
+				<li>
+					<h3>Mango</h3>
+					<p class="recommantion_illustration" style="background:url(/public/image/women/shoes/de.png) center;background-size:cover"></p>
+					<em>Basket Nike</em>
+					<p><span>N°10</span><span>Prix :400$</span></p>
+				</li>
+				<li>
+					<h3>Orca</h3>
+					<p class="recommantion_illustration" style="background:url(/public/image/women/shoes/oik.png) center;background-size:cover"></p>
+					<em>Basket Puma</em>
+					<p><span>N°39</span><span>Prix :40$</span></p>
+				</li>
+				<li>
+					<h3>Orca</h3>
+					<p class="recommantion_illustration" style="background:url(/public/image/women/shoes/sho.jpg) center;background-size:cover"></p>
+					<em>Basket Puma</em>
+					<p><span>N°40</span><span>Prix :70$</span></p>
+				</li>
+				
+			</ul>
+		</section>
+		
+		
+		{{#section "jquery"}}
+			<script type="text/javascript" src="/public/js/articleDetail.js"></script>			
+		{{/section}}
+	

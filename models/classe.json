@@ -1,0 +1,86 @@
+{
+	"classe":["femmes","hommes","filles","garcons","jeux","meuble","electromenager","high_tech"],
+	"categorie":{
+		"femmes":{			
+				"vetements":["robe","jupe","pagne","chémise","blouse","T-shirt","chémisier","pantallon","cullote","manteaux_et_veste","jeans","sweats_et_sweet","blazer_et_constumes","combinaisons","polos","pyjama"],			
+				"lingerie":["maillots de bain","chaussette","bas et collants","autres"],			
+				"chaussure":["ballerines","boots","derbie","escarpins","mocasins","pantouffle","sandales","flanneurs","tongs","haut talons","autres"],
+				"bijoux":["bracelet","gourmette","broches","boucles d'oreil","bijoux de fronts","bijoux de cheveaux","colliers","chainette","anneaux","medaillons"],
+				"montre":["montre_numerique","montre_mecanique","montre_intelligeante","autres"],
+				"sacs_et_valises":["jeux_de_sacs","portefeuille","sacs_à_dos","sacs_à_main","trousses","sacs_de_voyage"],
+				"produits_de_beaute":["parfums_et_deodorant","lait_de_beauté","savon_et_gel_de_douche"],
+				"makeup":["fard_à_joux","poudre","teint","demaquillant","pallette_pour_yeux","pallette_pour_levres","pinceaux_et_accessoires","autres"],
+				"chevellure":["perruque","lace_wig","tissage","meches_à_tisser","postiches","lace_frontale","closure"]
+		},
+		"filles":{
+			"vetements":["robe","jupe","pagne","chémise","blouse","T-shirt","chémisier","pantallon","cullote","manteaux_et_veste","jeans","sweats_et_sweet","blazer_et_constumes","combinaisons","polos","pyjama"],			
+				"lingerie":["maillots de bain","chaussette","bas et collants","autres"],			
+				"chaussure":["ballerines","boots","derbie","escarpins","mocasins","pantouffle","sandales","flanneurs","tongs","haut talons","autres"],
+				"bijoux":["bracelet","gourmette","broches","boucles d'oreil","bijoux de fronts","bijoux de cheveaux","colliers","chainette","anneaux","medaillons"],
+				"montre":["montre_numerique","montre_mecanique","montre_intelligeante","autres"],
+				"sacs_et_valises":["jeux_de_sacs","portefeuille","sacs_à_dos","sacs_à_main","trousses","sacs_de_voyage"],
+				"produits_de_beaute":["parfums_et_deodorant","lait_de_beauté","savon_et_gel_de_douche"],
+				"makeup":["fard_à_joux","poudre","teint","demaquillant","pallette_pour_yeux","pallette_pour_levres","pinceaux_et_accessoires","autres"],
+				"chevellure":["perruque","lace_wig","tissage","meches_à_tisser","postiches","lace_frontale","closure"]
+				
+		},
+		"hommes":{			
+				"vetements":["chemise","constume_et_blazzer","pantallons_jeans","cullotes","sweat_et_sweet","manteau_et_veste","pulls","polos_et_shirt"],				
+				"lingerie":["sous-vetements","maillots_de_bain","chaussette"],
+				"chaussure":["basket","chaussure classique","doug","flanneurs","chaussure_en_toiles","botte","sandale_et_tongs","chaussons","autres"],	
+				"bijoux":["anneaux","medaillons","chainette","gourmette","autres"],	
+				"montre":["montre_numerique","montre_mecanique","montre_intelligeante","autre"],
+				"sacs_et_valises":["sacs_à_dos","porte-documents","tuiles","portefeuille","sacs_de _voyage","bessace","portefolio","sacs_de_sport","mallette","autres"],	
+				"accessoire_de_mode":["chapeaux","ceinture","lunettes","foulards","mouchoire_de_poche","cravatte","bouton_manchette"]							
+		},
+		"garcons":{			
+				"vetements":["chemise","constume_et_blazzer","pantallons_jeans","cullotes","sweat_et_sweet","manteau_et_veste","pulls","polos_et_shirt"],				
+				"lingerie":["sous-vetements","maillots_de_bain","chaussette"],
+				"chaussure":["basket","chaussure classique","doug","flanneurs","chaussure_en_toiles","botte","sandale_et_tongs","chaussons","autres"],	
+				"bijoux":["anneaux","medaillons","chainette","gourmette","autres"],	
+				"montre":["montre_numerique","montre_mecanique","montre_intelligeante","autre"],
+				"sacs_et_valises":["sacs_à_dos","porte-documents","tuiles","portefeuille","sacs_de _voyage","bessace","portefolio","sacs_de_sport","mallette","autres"],	
+				"accessoire_de_mode":["chapeaux","ceinture","lunettes","foulards","mouchoire_de_poche","cravatte","bouton_manchette"]							
+		},
+		"jeux":{
+			"jeux_creatifs":["decoupage,collage_et_pliage","dessin_et_peinture","decoration","mosaique_et_sable","pate_a_modeler,montage_et_gravue","perles","tableaux_et_ardoises"],
+			"jeux_de_construction":["lego","maquette_et_modelisme","mecano","planchette","autres"],
+			"jeux_de_societé":["jeux_d'action","jeux_de_cartes","jeux_des_hasards","jeux_de_reflexion","jeux_de_strategie","jeux_de_voyages"],
+			"jeux_d'imitation":["bricolage_et_jardinage","cuisine","figurine","heros","play_mobil"],
+			"jeux_educatifs":["la_nature","le_monde","jeux_scientifique"],
+			"peluches":["doudou","ours_en_peluche","peluche_geante","peluche_interactive","theatre_et_marionette"],
+			"poupees":["poupées","poupons","bebe"],
+			"puzzles":["puzzles_de_500_à_100_pièces","puzzles_de_1500_à_300_pièces","puzzles_pour_enfants","puzzles_en_3D","autres"],
+			"jouets_radiocommandés":["avions_et_radio","drones","helicopter","garage_et_circuit","motos","voiture","vehicule_de_chantier","tracteurs"],
+			"jeux_de_plain_air":["vehicule_et_voiture_a_pedalle","vehicules_electrique","velos_et_trycicles","baby_foot","bacs_a_sable","hoverboards_et_gyropode","jeux_de_balle_et_ballon","jeux_de_tir","luges_et_bobs","maisons_et_cabanes","patinettes_et_trotinettes","piscines_et_jeux_de_plage","portiques_et_tobogans","rolles_et_patins","skateboards","trampolines"],
+			"jeux_video":["play_station","xbox","nitendo","realite_virtuelle","gamming_PC"]
+		},		
+		"meuble":{
+			"salon":["bibliotheque","canapé_et_divant","ensemble_des_canapées","fauteuilles_et_chaises","tables","meuble_de_ragement"],
+			"chambre_a_couche":["armoires","commodes","lits_et_cadre_de_lits","matelas_et_sommier","table_de_chevet","ensemble"],
+			"cuisine":["cassier_de_rangements","chaises","tables","ensemble"],
+			"salle_a_manger":["chaises","tables","ensemble"],
+			"salle_de_bain":["meubles_de_ragement","ensemble"],
+			"bureau":["armoire_et_bibliotheque","bureau_et_poste_de_travail","chaise_tabourets","autres"],
+			"polyvalent":["table","chaise","armoire","autres"]			
+		},		
+		"electromenager":{
+			"climatisation":["climatiseur","split","refroidisseur_d'air","purificateur_d'air","diffiseur_d'arome","deshumidification","autres"],
+			"lavage_et_sechage":["lave_linge","lave_linge_sechant","seche_linge","lave_vaiselle"],
+			"congelateur_et_refrigirateur":["refrigirateur_congelateur","refrigirateur_multiporte","refrigirateur_encastré","congelateur_armoire","congelateur_coffre","cave_à_vin"],
+			"cuison":["four","plaque","cuisiniere","table_de_cuisson","piano_de_cuisson","bouillard"],
+			"petit_appareil_de_cuisine":["fontaine_à_chocolat","friteuse","cafetiere","mixeur","machine_à_pain","marmite_electrique","extracteur_de_jus","robot_patisseur"],
+			"repassage":["fer_à_repasser","centrale_à_vapeur","defroisseur_verticaux"],
+			"nettoyage":["aspirateur_nettoyeur","aspirateur_balai","robot_aspirateur","lave_vitre"]
+		},		
+		"high_tech":{
+			"telephone":["telephone_portable","telephone_fixe","houses_et_etuis","energie_et_connectique","autres"],
+			"photo_et_camescope":["reflex","compactes_et_bridges","objectifs","cameras_d'action","game_etanche","camescope","carte_memoire","accessoires"],
+			"tv_et_video":["televiseurs","video_projecteur","barres_de_son","home_cinema","decodeur","meuble_et_suppor_tv","lecteur_DVD","lecteur_blue_ray"],
+			"informatique":["ordinateur_portable","tablette","pc_fixe_et_ecran","gamming","imprimante","accessoires"],
+			"audio_et_wifi":["casque_et_ecouteur","enceinte_portable","enceinte_fixe","chaine_wifi","lecteur_MP3_et_MP4","ipod","radio","amplificateur"],
+			"objects_connecté":["smart_watch","aromes","réalité_virtuelle"],
+			"accessoire":["accessoire_mobile","accessoire_wifi","cables","autres"]
+		}		
+	}
+}
