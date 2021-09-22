@@ -17,19 +17,19 @@ mongoose.connect("mongodb+srv://binmartdatabase:e5JL0khoWCV33VeH@cluster0.libcr.
 mongoose.connection.on("open",function(){
 	console.log("app is connected"); 
 });
-
-
-app.listen(app.get("port"),function(){
-	console.log("The server is running on port "+app.get("port"));
-});
-
-
 process.on('SIGINT', function() {
 	mongoose.connection.close(function () {
 		console.log('Mongoose disconnected through app termination');
 		process.exit(0);
 	});
 });
+
+app.listen(app.get("port"),function(){
+	console.log("The server is running on port "+app.get("port"));
+});
+
+
+
 /*
 app.listen({
 	port:"3000",
