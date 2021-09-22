@@ -1,7 +1,7 @@
 var mongoose=require("mongoose"),
 Schema=mongoose.Schema;
 
-var adminSchema=new Schema({
+var Article=new Schema({
 	classe:{type:String},
 	age:{type:String},
 	categorie:{type:String},
@@ -59,4 +59,4 @@ var adminSchema=new Schema({
 	timeEdited:{type:String}
 });
 
-module.exports=mongoose.model("Article",adminSchema,"Article");
+module.exports=mongoose.model("Article",Article,"Article");
