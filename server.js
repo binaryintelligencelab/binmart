@@ -12,7 +12,7 @@ mongoose.Promise=global.Promise;
 
 //mongoose.connect("mongodb://localhost/binmart",{useNewUrlParser: true,useFindAndModify: true,useCreateIndex: true,keepAlive: 1, useUnifiedTopology: true});
 //mongoose.connect("mongodb://localhost/binmart");
-mongoose.connect("mongodb+srv://binmartdatabase:6AEXH1FiydcafUur@cluster0.libcr.mongodb.net/binmartdatabase?retryWrites=true&w=majority",{useNewUrlParser: true,useFindAndModify: true,useCreateIndex: true,keepAlive: 1, useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://binmartdatabase:e5JL0khoWCV33VeH@cluster0.libcr.mongodb.net/binmartdatabase?retryWrites=true&w=majority",{useNewUrlParser: true,useFindAndModify: true,useCreateIndex: true,keepAlive: 1, useUnifiedTopology: true});
 
 mongoose.connection.on("open",function(){
 	console.log("app is connected"); 
