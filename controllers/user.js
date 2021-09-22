@@ -76,7 +76,15 @@ function renderPost(viewModel,myCategorie,allCategorie,myClasse,res,req){
 		}
 	}else{
 		
-		
+		Article.find({},function(err,article){
+			if(err){
+				console.log("err");
+				console.log(err);
+			}else{
+				console.log("is okay")
+			}
+		});
+		/*
 		for(let i=0; i<allCategorie.length;i++){
 			Article.find({classe:myClasse,categorie:allCategorie[i],approved:true,flag:true,approvedcontent:true},function(err,articles){
 				if(err){
@@ -105,7 +113,7 @@ function renderPost(viewModel,myCategorie,allCategorie,myClasse,res,req){
 					
 				}
 			});
-		}
+		}*/
 		
 	}
 }
