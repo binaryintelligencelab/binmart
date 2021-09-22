@@ -5,4 +5,4 @@ var filenameSchema=new Schema({
 	filename:{type:Array}
 });
 
-module.exports=mongoose.model("Filename",filenameSchema);
+module.exports=mongoose.model("Filename",filenameSchema,"Filename");

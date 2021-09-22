@@ -9,6 +9,11 @@ var adminSchema=new Schema({
 	color:{type:Object},
 	colors:{type:Object},
 	
+	
+	
+	
+	
+	
 	name:{type:String},
 	mark:{type:String},
 	size:{type:Array},
@@ -54,4 +59,4 @@ var adminSchema=new Schema({
 	timeEdited:{type:String}
 });
 
-module.exports=mongoose.model("Article",adminSchema);
+module.exports=mongoose.model("Article",adminSchema,"Article");

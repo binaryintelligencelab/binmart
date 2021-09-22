@@ -11,4 +11,4 @@ var typicalSchema=new Schema({
 	edited:{type:Boolean,default:true}
 });
 
-module.exports=mongoose.model("typicalSchema",typicalSchema);
+module.exports=mongoose.model("typicalSchema",typicalSchema,"typicalSchema");

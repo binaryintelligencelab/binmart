@@ -249,42 +249,50 @@ $(document).ready(function(){
 						
 		});
 	});
-	/*
+	
+	/***This is for article detail ***/
+	/*var a=$("#article_wrapper .filter li > a");
+	var ul=$("#article_wrapper .filter .type");
 	a.each(function(){
+		
 		if($(this).next().hasClass("visible")){
-			$("#post_wrapper .filter:first-child").css({
-					"width":"200px"
+			
+			$($(this).parent()).css({
+				"borderBottom":"2px solid red"
 			});
-			$("#post_wrapper .filter:first-child li span").fadeIn();
+			
+			($(this).next()).removeClass("visible");
 		}
+		
 		$(this).on("click",function(){
+			
 			console.log("window.screen.availHeight()");
 			var width=window.screen.availWidth
 			if(width<750){
 				if(($(this).next()).hasClass("visible")){
 				ul.removeClass("visible");
-				$("#post_wrapper .filter li").removeClass("visible");
+				$("#article_wrapper .filter li").removeClass("visible");
 				$("#article_wrapper .filter li").removeClass("visible");
 				($(this).next()).removeClass("visible");				
 				//console.log(width);
-				$("#post_wrapper .filter:first-child").css({
+				$("#article_wrapper .filter:first-child").css({
 					"width":"70px"
 				});
-				$("#post_wrapper .filter:first-child li span").fadeOut();
+				$("#article_wrapper .filter:first-child li span").fadeOut();
 				
 				}else{
 					ul.removeClass("visible");
 					($(this).next()).addClass("visible");
 					($(this).parent()).addClass("visible");
-					$("#post_wrapper .filter:first-child").css({
+					$("#article_wrapper .filter:first-child").css({
 						"width":"200px"
 					})
-					$("#post_wrapper .filter:first-child li span").fadeIn();
+					$("#article_wrapper .filter:first-child li span").fadeIn();
 				}
 			}else{
 				if(($(this).next()).hasClass("visible")){
 				ul.removeClass("visible");
-				$("#post_wrapper .filter li").removeClass("visible");
+				$("#article_wrapper .filter li").removeClass("visible");
 				$("#article_wrapper .filter li").removeClass("visible");
 				($(this).next()).removeClass("visible");				
 				
@@ -296,6 +304,6 @@ $(document).ready(function(){
 			}
 						
 		});
-	});
-	*/
+	});*/
+	
 });

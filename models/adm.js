@@ -12,6 +12,7 @@ var adminSchema=new Schema({
 	town:{type:String},
 	commune:{type:String},
 	quarter:{type:String},
+	
 	avenue:{type:String},
 	numero:{type:Number},
 	solde:{type:Number,default:0},
@@ -26,4 +27,4 @@ var adminSchema=new Schema({
 	dateFormat:{type:String}
 });
 
-module.exports=mongoose.model("Admin",adminSchema);
+module.exports=mongoose.model("Admin",adminSchema,"Admin");

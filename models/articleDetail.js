@@ -8,4 +8,4 @@ var detailSchema=new Schema({
 	category:{type:String}
 });
 
-module.exports=mongoose.model("articleDetail",detailSchema);
+module.exports=mongoose.model("articleDetail",detailSchema,"articleDetail");

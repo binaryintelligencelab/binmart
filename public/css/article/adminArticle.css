@@ -274,6 +274,7 @@ body header{
 	width:100%;
 	font-size:0.9em;
 	color:rgba(0,0,0,0.8);
+	
 }
 #article_wrapper ul.article_illustration .edit_image p input{
 	margin:0.5em 0px;
@@ -482,6 +483,8 @@ body header{
 #article_wrapper div ul.description textarea{
 	width:100%;
 	margin-bottom:1em;
+	outline:none;
+	border:1px solid rgba(0,0,0,0.1);
 }
 
 #article_wrapper div ul.description textarea:focus,#article_wrapper div ul.description textarea:focus{
@@ -497,6 +500,7 @@ body header{
 	font-weight:normal;
 	position:relative;
 }
+
 #article_wrapper div ul.adress h2,#article_wrapper div ul.warning h2{
 	margin-top:1.5em;
 }
@@ -583,8 +587,22 @@ body header{
 	display:flex;
 	flex-wrap:wrap;
 }
+#article_wrapper div ul.top_color{
+	display:none;
+}
+
 #article_wrapper div ul.size h2,#article_wrapper div ul.color h2{
 	width:100%;
+}
+
+#article_wrapper div ul.size form{
+	margin-bottom:0px;
+}
+#article_wrapper div ul.color{
+	margin-top:0px;
+}
+#article_wrapper div ul.color h2{
+	margin-top:0px;
 }
 
 #article_wrapper div ul.size li{
@@ -621,9 +639,13 @@ body header{
 	width:100%;
 	/border:1px solid red;
 	display:flex;
+	padding:0px;
+	margin:0.2em auto;
 }
 #article_wrapper div ul.size p.add input{
 	width:100px;
+	outline:none;
+	border:1px solid rgba(0,0,0,0.1);
 }
 #article_wrapper div ul.size p.add .submit{
 	margin:0px 1em;
@@ -637,7 +659,7 @@ body header{
 
 #article_wrapper div ul.color{
 	margin:0.7em auto;
-	margin-bottom:2em;
+	margin-bottom:0px;
 }
 #article_wrapper div ul.color li{
 	background:rgba(128,128,128,0.1);
@@ -863,12 +885,14 @@ body header{
 	background:rgba(0,128,192,1);
 }
 
-
+#article_wrapper div ul.warning h2{
+	margin-top:0.7em;
+}
 #article_wrapper div ul.warning p{
 	color:rgba(0,0,0,0.8);
 	font-size:0.8em;
 	line-height:1.3em;
-	margin-top:0px;
+	margin-top:0.5em;
 }
 
 
@@ -1163,11 +1187,16 @@ footer{
 }
 
 @media screen and (max-width:960px){
+	#article_wrapper div ul.description p.edit{
+		padding:0.2em 0.5em;
+		text-align:left;
+	}
 	#article_wrapper article{
 		width:56%;
 	}
 	#article_wrapper ul.article_illustration{
-		width:90%;
+		width:95%;
+		/border:1px solid red;
 	}
 	#article_wrapper div{
 		width:100%;
@@ -1180,8 +1209,14 @@ footer{
 	#article_wrapper ul.article_illustration #first_edit{
 		margin-top:1400px;/*to be wacthing */
 	}
+	#article_wrapper div ul.top_color{
+		display:flex;
+	}
+	#article_wrapper div ul.bottom_color{
+		display:none;
+	}
 	#article_wrapper div.article_description{
-		margin-top:160px;/*to be wacthing*/
+		margin-top:250px;/*to be wacthing*/
 	}
 	footer{
 		margin-top:800px;/*to be watching*/
@@ -1212,9 +1247,13 @@ footer{
 	}
 	#article_wrapper .filter:first-child{
 		width:70px;
+		position:absolute;
+		z-index:8000;
+		background:rgba(255,255,255,0.9);
 	}
 	#article_wrapper article{
 		width:86%;
+		margin-left:80px;
 	}
 	#article_wrapper ul.article_illustration >li{
 		height:250px;
@@ -1269,6 +1308,25 @@ footer{
 	#article_wrapper ul.article_illustration >li span em:last-child{
 		font-size:1.1em;
 		font-weight:bold;
+	}
+	#article_wrapper ul.article_illustration .edit_image{
+		width:90%;
+		/border:1px solid red;
+	}
+	#article_wrapper ul.article_illustration .edit_image form{
+		width:80%;
+	}
+	#article_wrapper ul.article_illustration .edit_image p{
+		display:flex;
+		align-items:flex-start;
+		flex-direction:column;
+		justify-content:flex-start;
+	}
+	#article_wrapper ul.article_illustration .edit_image p .span{
+		margin-left:0px;
+	}
+	#article_wrapper ul.article_illustration #first_edit{
+		margin-top:1430px;/*to be wacthing */
 	}
 }
 

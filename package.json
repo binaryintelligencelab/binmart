@@ -1,5 +1,5 @@
 {
-  "name": "bootikon",
+  "name": "binmart",
   "version": "1.0.0",
   "description": "\"Application de vente en ligne\"",
   "main": "server.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "botikon"
+    "url": "binmart"
   },
   "author": "bintlab.sarl",
   "license": "ISC",
@@ -17,7 +17,7 @@
     "node": "10.15.1"
   },
   "dependencies": {
-    "mongoose": "^5.6.7",
+    "mongoose": "5.0.0",
     "express": "^4.17.1",
     "express-handlebars-multi": "^0.2.31",
     "body-parser": "^1.18.0",

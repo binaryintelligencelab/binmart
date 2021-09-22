@@ -24,4 +24,4 @@ var panierSchema=new Schema({
 	commandeStep:{type:String}//waitpayement or inway or deliver or delete
 });
 
-module.exports=mongoose.model("Panier",panierSchema);
+module.exports=mongoose.model("Panier",panierSchema,"Panier");

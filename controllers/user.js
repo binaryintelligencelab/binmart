@@ -75,10 +75,17 @@ function renderPost(viewModel,myCategorie,allCategorie,myClasse,res,req){
 			}
 		}
 	}else{
+		
+		
 		for(let i=0; i<allCategorie.length;i++){
 			Article.find({classe:myClasse,categorie:allCategorie[i],approved:true,flag:true,approvedcontent:true},function(err,articles){
 				if(err){
-					res.redirect("/")
+					console.log('err');
+					console.log(err);
+					tab.push(i);
+					if(tab.length===allCategorie.length){
+						res.redirect("/")
+					}					
 				}
 				else{
 					tab.push(i);
@@ -99,6 +106,7 @@ function renderPost(viewModel,myCategorie,allCategorie,myClasse,res,req){
 				}
 			});
 		}
+		
 	}
 }
 

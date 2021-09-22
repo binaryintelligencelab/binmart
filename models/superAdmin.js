@@ -17,5 +17,5 @@ var newAdmin=new superAdmin({
 
 */
 
-module.exports=mongoose.model("superAdmin",superAdmin);
+module.exports=mongoose.model("superAdmin",superAdmin,"superAdmin");
 

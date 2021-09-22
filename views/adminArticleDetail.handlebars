@@ -210,6 +210,38 @@
 					
 				</ul>
 				<div class="article_description">
+					<ul class="color top_color" >
+						<h2>Couleur dispoble</h2>
+						{{#each allColors}}
+							{{#if principal}}
+									<a href="/{{../classe}}/{{../article.categorie}}/{{../article.type}}/{{../article._id}}/{{_id}}" class="principal_color">
+										<li style="background:{{name}}" title="{{name}}" id="{{filename1}}"></li>
+									</a>
+								{{else}}
+									<a href="/{{../classe}}/{{../article.categorie}}/{{../article.type}}/{{../article._id}}/{{_id}}">
+										<li style="background:{{name}}" title="{{name}}" id="{{filename1}}"></li>
+									</a>
+							{{/if}}																					
+						{{/each}}
+						<form method="post" action="/admin/addNewColor/{{article._id}}" enctype="multipart/form-data">
+								<h3>Ajouter une nouvelle couleur</h3>
+								<label for="file"><span>Les deux Images</span><input type="file" name="file" multiple/>
+									{{#if no_image}}<i class="required">Ce champ est obligatoire</i>{{/if}}
+									{{#if no_two_image}}<i class="required">Deux images sont requise par une couleur</i>{{/if}}
+								</label>								
+								<label for="color"><span>Couleur de l'article</span><input type="color" name="color">
+									
+									{{#if color_exist}}
+										<i class="required">Une couleur n'est peux etre ajouter deux fois</i>
+									{{/if}}
+									{{#if no_color}}
+										<i class="required">Ce champ est obligatoire</i>
+									{{/if}}
+								</label>
+								<span><input class="add" type="submit" value="Ajouter"/></span>
+							</form>
+					</ul>
+					
 					<ul class="description">
 						<h2>Description de l'article</h2>
 						<p class="guaranty" style="display:none"><span>GARANTIE 6 Mois</span></p>
@@ -294,7 +326,7 @@
 							<p class="add"><label for="size"><input type="number" placeholder="taille" name="size"/> </label><input type="submit" class="submit" value="Ajouter"/></p>
 						</form>
 					</ul>
-					<ul class="color">
+					<ul class="color bottom_color">
 						<h2>Couleur dispoble</h2>
 						{{#each allColors}}
 							{{#if principal}}
