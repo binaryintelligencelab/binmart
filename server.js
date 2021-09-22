@@ -9,7 +9,7 @@ app=config(app);
 
 mongoose.Promise=global.Promise;
 
-mongoose.connect("mongodb+srv://:AzN2XWuGUwY6pGOg@cluster0.libcr.mongodb.net/binmartdatabase?retryWrites=true&w=majority",{useNewUrlParser: true,useFindAndModify: true,useCreateIndex: true,keepAlive: 1, useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://binmart:<password>@cluster0.libcr.mongodb.net/binmartdatabase?retryWrites=true&w=majority");
 
 mongoose.connection.on("open",function(){
 	console.log("app is connected"); 
