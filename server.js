@@ -23,6 +23,7 @@ process.on('SIGINT', function() {
 		process.exit(0);
 	});
 });
+const uri = process.env.MONGODB_URI;
 
 app.listen(app.get("port"),function(){
 	console.log("The server is running on port "+app.get("port"));
