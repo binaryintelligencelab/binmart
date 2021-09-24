@@ -8,8 +8,8 @@ app.set("views",__dirname+"/views");
 app=config(app);
 
 mongoose.Promise=global.Promise;
-
-mongoose.connect("mongodb+srv://binaryintelligencelab:AzN2XWuGUwY6pGOg@cluster0.libcr.mongodb.net/binmartdatabase?retryWrites=true&w=majority");
+const uri=process.env.MONGO_DB_URI;
+mongoose.connect(uri);
 
 mongoose.connection.on("open",function(){
 	console.log("app is connected"); 
@@ -20,7 +20,7 @@ process.on('SIGINT', function() {
 		process.exit(0);
 	});
 });
-const uri = process.env.MONGODB_URI;
+
 
 app.listen(app.get("port"),function(){
 	console.log("The server is running on port "+app.get("port"));
