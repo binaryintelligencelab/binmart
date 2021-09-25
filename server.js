@@ -7,6 +7,7 @@ app.set("port",process.env.PORT||5000);
 app.set("views",__dirname+"/views");
 app=config(app);
 
+mongoose.connect("mongodb+srv://binaryintelligencelab:AzN2XWuGUwY6pGOg@cluster0.libcr.mongodb.net/binmartdatabase?retryWrites=true&w=majority");
 
 mongoose.connection.on("open",function(){
 	console.log("app is connected"); 
