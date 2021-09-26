@@ -12,12 +12,6 @@ mongoose.connect("mongodb+srv://binaryintelligencelab:alliens@ermite3@cluster0.l
 mongoose.connection.on("open",function(){
 	console.log("app is connected"); 
 });
-process.on('SIGINT', function() {
-	mongoose.connection.close(function () {
-		console.log('Mongoose disconnected through app termination');
-		process.exit(0);
-	});
-});
 
 
 app.listen(app.get("port"),function(){
