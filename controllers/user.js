@@ -76,7 +76,9 @@ function renderPost(viewModel,myCategorie,allCategorie,myClasse,res,req){
 		}
 	}else{
 		console.log("I am tired");
-		Article.find({},function(err,article){
+		console.log("Article");
+		console.log(Article);
+		/*Article.find({},function(err,article){
 			console.log("inside");
 			if(err){
 				console.log("err");
@@ -84,7 +86,7 @@ function renderPost(viewModel,myCategorie,allCategorie,myClasse,res,req){
 			}else{
 				console.log("is okay")
 			}
-		});
+		});*/
 		/*
 		for(let i=0; i<allCategorie.length;i++){
 			Article.find({classe:myClasse,categorie:allCategorie[i],approved:true,flag:true,approvedcontent:true},function(err,articles){
