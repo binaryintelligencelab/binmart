@@ -8,7 +8,7 @@ app.set("views",__dirname+"/views");
 app=config(app);
 
 //mongoose.connect("mongodb+srv://binaryintelligencelab:sV7O9N2sobV0xJcB@cluster0.libcr.mongodb.net/binmartdatabase?retryWrites=true&w=majority");
-mongoose.connect(process.env.DATABASE_URI);
+mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on("open",function(){
 	console.log("app is connected"); 
 });
