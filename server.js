@@ -3,11 +3,11 @@ mongoose=require("mongoose"),
 config=require("./server/configure"),
 app=express();
 
-app.set("port",process.env.PORT||5000);
+app.set("port",process.env.PORT);
 app.set("views",__dirname+"/views");
 app=config(app);
 
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI,{useNewUrlParser:true});
 mongoose.connection.on("open",function(){
 	console.log("app is connected"); 
 });
