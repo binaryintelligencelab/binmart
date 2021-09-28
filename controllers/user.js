@@ -1,3 +1,5 @@
+"use strict"
+
 var User=require("../models/user");
 var Admin=require("../models/adm");
 var SuperAdmin=require("../models/superAdmin");
