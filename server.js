@@ -7,7 +7,7 @@ app.set("port",process.env.PORT);
 app.set("views",__dirname+"/views");
 app=config(app);
 
-mongoose.connect(process.env.MONGODB_URI,{useNewUrlParser:true});
+mongoose.connect(process.env.MONGODB_URI,{useNewUrlParser:true,useUnifiedTopology:true});
 mongoose.connection.on("open",function(){
 	console.log("app is connected"); 
 });
