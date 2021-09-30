@@ -1,4 +1,4 @@
-"use strict"
+
 
 var User=require("../models/user");
 var Admin=require("../models/adm");
