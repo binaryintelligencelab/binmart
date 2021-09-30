@@ -12,8 +12,7 @@ Article.find({},function(err,article){
 app.set("port",process.env.PORT);
 app.set("views",__dirname+"/views");
 app=config(app);
-console.log("process.env.MONGODB_URI");
-console.log(process.env.MONGODB_URI);
+
 mongoose.connect(process.env.MONGODB_URI,{useNewUrlParser:true,useUnifiedTopology:true});
 mongoose.connection.on("open",function(){
 	console.log("app is connected"); 
