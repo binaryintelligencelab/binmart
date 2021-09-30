@@ -1,13 +1,9 @@
+"use strict"
+
 var express=require("express"),
 mongoose=require("mongoose"),
 config=require("./server/configure"),
 app=express();
-var Article=require("./models/article");
-Article.find({},function(err,article){
-	console.log("bot");
-	console.log(article);
-	console.log(err);
-});
 
 app.set("port",process.env.PORT);
 app.set("views",__dirname+"/views");
