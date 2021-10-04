@@ -78,7 +78,7 @@ function renderPost(viewModel,myCategorie,allCategorie,myClasse,res,req){
 		}
 	}else{
 		console.log("I am tired");
-		Article.find({},function(err,art){
+		Article.Find({},function(err,art){
 			console.log("err");
 			console.log(err);
 			console.log("art");
